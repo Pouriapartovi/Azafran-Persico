@@ -7,8 +7,8 @@ const menu = [
   {
     id: 'entrantes', es: 'Entrantes', en: 'Starters',
     items: [
-      { p: true, photo: 'olivieh', es: 'Ensalada rusa estilo persa', en: 'Persian Olivier salad', price: '7,00', des: 'Olivieh, la ensaladilla de patata de las casas de Teherán, con tostadas.', den: 'Olivieh, the potato salad of Tehran homes, with toasts.' },
-      { p: true, photo: 'kashk-bademjan', es: 'Crema de berenjena estilo persa', en: 'Persian aubergine dip', price: '9,50', des: 'Kashk-e bademjan: berenjena ahumada con kashk, cebolla frita y menta, con tostadas.', den: 'Kashk-e bademjan: smoky aubergine with kashk, fried onion and mint, with toasts.' },
+      { p: true, photo: 'olivieh', es: 'Ensalada rusa estilo persa', en: 'Persian Olivier salad', price: '7,00', des: 'Olivieh, la ensaladilla de patata al estilo persa, con tostadas.', den: 'Olivieh, potato salad the Persian way, with toasts.' },
+      { p: true, photo: 'kashk-bademjan', es: 'Crema de berenjena estilo persa', en: 'Persian aubergine dip', price: '9,50', des: 'Kashk-e bademjan: berenjena ahumada con kashk y nueces, con tostadas.', den: 'Kashk-e bademjan: smoky aubergine with kashk and walnuts, with toasts.' },
       { photo: 'ensalada-verde', es: 'Ensalada verde', en: 'Green salad', price: '8,50', des: 'Mezclum, aguacate, huevo, zanahoria y tomate.', den: 'Mixed leaves, avocado, egg, carrot and tomato.' },
       { photo: 'tomate-mozzarella', es: 'Tomate y mozzarella', en: 'Tomato and mozzarella', price: '10,00', des: 'Tomate maduro, mozzarella y aceite de oliva.', den: 'Ripe tomato, mozzarella and olive oil.' },
       { photo: 'queso-cabra', es: 'Ensalada de queso de cabra', en: 'Goat cheese salad', price: '10,00', des: 'Con nueces.', den: 'With walnuts.' },
@@ -35,24 +35,28 @@ const menu = [
   {
     id: 'pescados', es: 'Pescados', en: 'Fish and seafood',
     items: [
-      { photo: 'tartar-salmon', es: 'Tartar de salmón con aguacate', en: 'Salmon tartare with avocado', price: '15,90' },
+      { photo: 'tartar-salmon', es: 'Tartar de salmón con aguacate', en: 'Salmon tartare with avocado', price: '15,90', des: 'Salmón fresco y aguacate.', den: 'Fresh salmon and avocado.' },
       { photo: 'pescado-dia', es: 'Pescado del día', en: 'Fish of the day', price: '17,50', des: 'Con patatas o ensalada.', den: 'With fries or salad.' },
       { photo: 'fish-chips', es: 'Fish and chips', en: 'Fish and chips', price: '18,80', des: 'Con salsa tártara.', den: 'With tartare sauce.' },
-      { photo: 'tartar-atun', es: 'Tartar de atún fresco', en: 'Fresh tuna tartare', price: '19,90' },
-      { photo: 'gambones', es: 'Gambones a la plancha', en: 'Grilled king prawns', price: '26,90' },
+      { photo: 'tartar-atun', es: 'Tartar de atún fresco', en: 'Fresh tuna tartare', price: '19,90', des: 'Atún fresco cortado a cuchillo.', den: 'Fresh tuna, hand-cut.' },
+      { photo: 'gambones', es: 'Gambones a la plancha', en: 'Grilled king prawns', price: '26,90', des: 'A la plancha.', den: 'From the griddle.' },
       { photo: 'paella', es: 'Paella de marisco', en: 'Seafood paella', price: '16,00 / 28,90', des: 'Para una persona o para dos.', den: 'For one or for two.' },
     ],
   },
   {
     id: 'carnes', es: 'Carnes', en: 'Meat',
     items: [
-      { p: true, photo: 'pollo-azafran', es: 'Pollo al azafrán con arroz', en: 'Saffron chicken with rice', price: '18,90', des: 'Marinado en azafrán de Irán, con arroz persa y tahdig.', den: 'Marinated in Iranian saffron, with Persian rice and tahdig.' },
+      { p: true, photo: 'kebab-mixto', es: 'Pincho de carne y pollo con azafrán', en: 'Beef and saffron chicken kebab', price: '32,50', des: 'Con arroz persa, tomate y pimiento asados.', den: 'With Persian rice, grilled tomato and pepper.' },
+      { p: true, photo: 'kubideh', es: 'Kebab koobideh', en: 'Kebab koobideh', des: 'Dos pinchos de carne picada, con arroz persa.', den: 'Two skewers of minced meat, with Persian rice.' },
+      { p: true, photo: 'kebab-barg', es: 'Pincho de carne con arroz', en: 'Beef kebab with rice', price: '27,00', des: 'Con arroz persa al azafrán y rúcula.', den: 'With saffron Persian rice and rocket.' },
+      { p: true, photo: 'joojeh', es: 'Pincho de pollo con azafrán', en: 'Saffron chicken kebab' },
+      { p: true, photo: 'pollo-azafran', es: 'Pollo al azafrán con arroz', en: 'Saffron chicken with rice', price: '18,90', des: 'Pollo marinado en azafrán, con arroz persa.', den: 'Chicken marinated in saffron, with Persian rice.' },
       { p: true, photo: 'khoresh', es: 'Guiso persa del día con arroz', en: 'Persian stew of the day', price: '17,50', des: 'Khoresh hecho a fuego lento. Pregunta cuál toca hoy.', den: 'A slow-cooked khoresh. Ask which one is on today.' },
-      { p: true, photo: 'cordero', es: 'Cordero aromático con arroz, 500 g', en: 'Aromatic lamb with rice, 500 g', price: '38,00', des: 'Cocinado durante horas con especias persas y azafrán.', den: 'Cooked for hours with Persian spices and saffron.' },
+      { p: true, photo: 'cordero', es: 'Cordero aromático con arroz, 500 g', en: 'Aromatic lamb with rice, 500 g', price: '38,00', des: 'Cordero especiado al estilo persa.', den: 'Lamb spiced the Persian way.' },
       { photo: 'pollo-catalana', es: 'Pollo a la catalana', en: 'Catalan-style chicken', price: '15,90', des: 'Guisado con frutos secos, sobre puré.', den: 'Braised with dried fruit, served on mash.' },
       { photo: 'lacon', es: 'Lacón con patatas', en: 'Cured pork shoulder with potatoes', price: '14,90' },
       { photo: 'hamburguesa', es: 'Hamburguesa de solomillo', en: 'Sirloin burger', price: '19,50', des: 'Carne de solomillo, con patatas.', den: 'Sirloin beef, with fries.' },
-      { photo: 'steak-tartar', es: 'Steak tartar sobre tuétano', en: 'Steak tartare on bone marrow', price: '25,00' },
+      { photo: 'steak-tartar', es: 'Steak tartar sobre tuétano', en: 'Steak tartare on bone marrow', price: '25,00', des: 'Tartar de ternera sobre tuétano asado.', den: 'Beef tartare on roasted bone marrow.' },
       { photo: 'solomillo', es: 'Solomillo a la pimienta', en: 'Beef tenderloin, pepper sauce', price: '27,00', des: 'Con patatas o ensalada.', den: 'With fries or salad.' },
       { photo: 'chuleton', es: 'Chuletón, 520 g', en: 'Rib steak, 520 g', price: '32,50', des: 'Con patatas o ensalada.', den: 'With fries or salad.' },
     ],
@@ -60,9 +64,9 @@ const menu = [
   {
     id: 'postres', es: 'Postres', en: 'Desserts',
     items: [
-      { p: true, photo: 'helado-persa', es: 'Helado persa', en: 'Persian ice cream', price: '6,50', des: 'Bastani de azafrán y pistacho, con agua de rosas.', den: 'Bastani with saffron, pistachio and rose water.' },
-      { photo: 'crema-catalana', es: 'Crema catalana', en: 'Crema catalana', price: '5,00' },
-      { photo: 'tarta-queso', es: 'Tarta de queso', en: 'Cheesecake', price: '5,50' },
+      { p: true, photo: 'helado-persa', es: 'Helado persa', en: 'Persian ice cream', price: '6,50', des: 'De pistacho o de azafrán.', den: 'Pistachio or saffron.' },
+      { photo: 'crema-catalana', es: 'Crema catalana', en: 'Crema catalana', price: '5,00', des: 'Crema con azúcar caramelizado.', den: 'Custard with caramelised sugar.' },
+      { photo: 'tarta-queso', es: 'Tarta de queso', en: 'Cheesecake', price: '5,50', des: 'Tarta de queso casera.', den: 'Homemade cheesecake.' },
       { photo: 'mousse', es: 'Mousse de chocolate', en: 'Chocolate mousse', price: '6,50', des: 'Con frutos secos.', den: 'With nuts.' },
       { photo: 'bizcocho', es: 'Bizcocho', en: 'Sponge cake', price: '4,50', des: 'Con naranja confitada.', den: 'With candied orange.' },
     ],
@@ -79,7 +83,7 @@ const dish = (d) => `
               <img src="img/${d.photo}.jpg" alt="${esc(d.es)}" width="160" height="200" loading="lazy" onerror="this.remove()">
             </figure>
             <div class="dish-text">
-              <p class="dish-line"><span class="dish-name"${attr(d.en)}>${esc(d.es)}</span><span class="dish-price">${d.price} €</span></p>${d.des ? `
+              <p class="dish-line"><span class="dish-name"${attr(d.en)}>${esc(d.es)}</span>${d.price ? `<span class="dish-price">${d.price} €</span>` : ''}</p>${d.des ? `
               <p class="dish-desc"${attr(d.den)}>${esc(d.des)}</p>` : ''}${d.p ? `
               <p class="dish-note" data-en="Persian recipe, made with saffron">Receta persa, con azafrán</p>` : ''}
             </div>

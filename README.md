@@ -6,17 +6,17 @@ It is a plain static site (HTML, CSS and a little JavaScript), so it can be host
 
 ## Adding photos
 
-Every photo on the page has a fixed file name. Put a JPG with that name in the `img/` folder and it shows up on its own. Until then, a drawn saffron flower holds the place.
+Every photo on the page has a fixed file name. Put a JPG with that name in the `img/` folder and it shows up on its own; a new photo with an existing name replaces the old one. Until a photo exists, a drawn saffron flower holds its place.
+
+The dish photos in `img/` were taken from the 2025 printed menu, so they are small (about 700 px wide). The originals from the photographer will look sharper, especially `kebab-mixto.jpg` on the first screen.
 
 Use landscape or square photos at least 1600 px wide for the big slots, and at least 600 px for the dishes. Keep each file under about 400 KB (export at around 80% quality).
 
 | File in `img/` | Where it appears |
 | --- | --- |
-| `azafran.jpg` | The big arch in the saffron section: your saffron threads, close up |
-| `pollo-azafran.jpg`, `cordero.jpg`, `helado-persa.jpg` | Shown in the same arch when someone picks that dish |
-| `khoresh.jpg`, `arroz-azafran.jpg`, `paella.jpg` | The three small pictures inside the opening sentence |
+| `kebab-mixto.jpg` | The first screen, and the saffron dish picker |
 | `equipo.jpg` | Our story: the owner or the chef |
-| `fachada.jpg`, `sala-1.jpg`, `sala-2.jpg`, `detalle.jpg`, `noche.jpg` | El local: the front, the dining room, a laid table, a detail, the room at night |
+| `fachada.jpg`, `sala-1.jpg`, `sala-2.jpg`, `noche.jpg` | El local: the front, the dining room, a laid table, the room at night |
 | One per dish, e.g. `croquetas.jpg`, `chuleton.jpg` | Beside each dish in the menu. The full list of names is in `tools/menu.mjs` (`photo:`) |
 
 ## Changing the menu

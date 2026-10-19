@@ -178,12 +178,11 @@
     ['.statement'],
     ['.saffron-pic', '.saffron-text h2', '.saffron-lead', '.picker', '.cells'],
     ['.carta-head h2', '.carta-intro'],
-    ['.panel h2', '.historia-text > div:nth-child(1)', '.historia-text > div:nth-child(2)', '.historia-text .btn', '.portrait'],
-    ['.foot-mark .fm-1', '.foot-mark .fm-2', '.foot-mark .fm-3'],
+    ['.panel h2'],
+    ['.med-big', '.med-text h2', '.med-lead', '.med-list li:nth-child(1)', '.med-list li:nth-child(2)', '.med-list li:nth-child(3)'],
   ];
   groups.forEach((g) => g.forEach((s, i) => $$(s).forEach((el) => { el.dataset.reveal = ''; el.style.setProperty('--i', i); })));
   $$('.course-head, .carta-more').forEach((el) => { el.dataset.reveal = ''; });
-  $$('.dishes').forEach((ul) => { ul.dataset.reveal = ''; });
 
   if ('IntersectionObserver' in window && !reduced) {
     const io = new IntersectionObserver((entries) => entries.forEach((e) => {
