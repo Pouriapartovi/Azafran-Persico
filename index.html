@@ -63,6 +63,12 @@
 
 <a class="skip" href="#carta" data-en="Skip to the menu">Ir a la carta</a>
 
+<!-- The dish that stays behind the page while you scroll -->
+<div class="backdrop" aria-hidden="true">
+  <img class="bd is-on" data-bd="paella" src="img/bg-paella.jpg" alt="">
+  <img class="bd" data-bd="kubideh" src="img/bg-kubideh.jpg" alt="">
+</div>
+
 <header class="nav" id="nav">
   <div class="nav-in">
     <a class="nav-logo" href="#top" aria-label="Azafrán Pérsico, inicio"><svg aria-hidden="true"><use href="#logo"/></svg></a>
@@ -93,34 +99,19 @@
 
 <main id="top">
 
-  <!-- Hero: the promise on the left, the kitchen moving on the right -->
-  <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-in">
-      <div class="hero-copy">
-        <p class="hero-kicker" data-en="Persian and Mediterranean restaurant · Eixample, Barcelona">Restaurante persa y mediterráneo · Eixample, Barcelona</p>
-        <h1 id="hero-title" class="hero-title" data-en-html="Persian flavour, <em>Mediterranean soul</em>">Sabor persa, <em>alma mediterránea</em></h1>
-        <p class="hero-sub" data-en="Kebabs with saffron rice, slow Persian stews, tapas and paella. Cooked by a family that ran restaurants in Tehran, with real saffron from Iran.">Kebabs con arroz al azafrán, guisos persas, tapas y paella. Cocina de una familia que llevó restaurantes en Teherán, con azafrán auténtico de Irán.</p>
-        <div class="hero-actions">
-          <a class="btn btn-saffron" href="#reservar" data-en="Book a table">Reservar mesa</a>
-          <a class="btn btn-ghost" href="#carta" data-en="See the menu">Ver la carta</a>
-        </div>
-        <p class="open-now" data-open-now>Martes a domingo, de 11:30 a 00:00</p>
+  <!-- Hero: the paella behind, the promise in front -->
+  <section class="hero" data-bg="paella" aria-labelledby="hero-title">
+    <div class="wrap hero-in">
+      <p class="hero-kicker" data-en="Persian and Mediterranean restaurant · Eixample, Barcelona">Restaurante persa y mediterráneo · Eixample, Barcelona</p>
+      <h1 id="hero-title" class="hero-title" data-en-html="Persian flavour, <em>Mediterranean soul</em>">Sabor persa, <em>alma mediterránea</em></h1>
+      <p class="hero-sub" data-en="Kebabs with saffron rice, Persian stews, tapas and paella, made with real saffron from Iran.">Kebabs con arroz al azafrán, guisos persas, tapas y paella, hechos con azafrán auténtico de Irán.</p>
+      <div class="hero-actions">
+        <a class="btn btn-saffron" href="#reservar" data-en="Book a table">Reservar mesa</a>
+        <a class="btn btn-line" href="#carta" data-en="See the menu">Ver la carta</a>
       </div>
-      <div class="hero-wall" aria-hidden="true">
-        <div class="wall-col" style="--dur: 46s">
-          <img src="img/kebab-mixto.jpg" alt=""><img src="img/kashk-bademjan.jpg" alt=""><img src="img/paella.jpg" alt=""><img src="img/alitas.jpg" alt=""><img src="img/olivieh.jpg" alt="">
-          <img src="img/kebab-mixto.jpg" alt=""><img src="img/kashk-bademjan.jpg" alt=""><img src="img/paella.jpg" alt=""><img src="img/alitas.jpg" alt=""><img src="img/olivieh.jpg" alt="">
-        </div>
-        <div class="wall-col wall-up" style="--dur: 54s">
-          <img src="img/kubideh.jpg" alt=""><img src="img/steak-tartar.jpg" alt=""><img src="img/gyozas.jpg" alt=""><img src="img/tartar-salmon.jpg" alt=""><img src="img/pollo-catalana.jpg" alt="">
-          <img src="img/kubideh.jpg" alt=""><img src="img/steak-tartar.jpg" alt=""><img src="img/gyozas.jpg" alt=""><img src="img/tartar-salmon.jpg" alt=""><img src="img/pollo-catalana.jpg" alt="">
-        </div>
-        <div class="wall-col" style="--dur: 50s">
-          <img src="img/kebab-barg.jpg" alt=""><img src="img/croquetas.jpg" alt=""><img src="img/chuleton.jpg" alt=""><img src="img/tomate-mozzarella.jpg" alt=""><img src="img/padron.jpg" alt="">
-          <img src="img/kebab-barg.jpg" alt=""><img src="img/croquetas.jpg" alt=""><img src="img/chuleton.jpg" alt=""><img src="img/tomate-mozzarella.jpg" alt=""><img src="img/padron.jpg" alt="">
-        </div>
-      </div>
+      <p class="open-now" data-open-now>Martes a domingo, de 11:30 a 00:00</p>
     </div>
+    <a class="scroll-cue" href="#platos" aria-label="Bajar"><span></span></a>
   </section>
 
   <!-- A running band of what we are about -->
@@ -142,7 +133,7 @@
   </div>
 
   <!-- The plates we are proudest of, in a row you can swipe -->
-  <section class="stars" aria-labelledby="stars-title">
+  <section class="stars solid" id="platos" aria-labelledby="stars-title">
     <div class="wrap">
       <div class="section-head" data-r>
         <h2 id="stars-title" data-en-html="The plates that <em>bring you back</em>">Los platos que <em>te harán volver</em></h2>
@@ -154,13 +145,13 @@
     </div>
     <div class="slider" data-slider tabindex="0" aria-label="Platos destacados">
       <article class="star is-persian">
-        <div class="star-pic"><img src="img/kebab-mixto.jpg" alt="Pincho de carne y pollo con azafrán" width="735" height="551" loading="lazy"><span class="badge" data-en="Persian recipe">Receta persa</span></div>
+        <div class="star-pic"><img src="img/kebab-mixto.jpg" alt="Pincho de carne y pollo con azafrán" width="960" height="1280" loading="lazy" style="object-position: center 55%"><span class="badge" data-en="Persian recipe">Receta persa</span></div>
         <h3 data-en="Beef and saffron chicken kebab">Pincho de carne y pollo con azafrán</h3>
         <p data-en="Saffron chicken and minced beef, Persian rice, grilled tomato and pepper.">Pollo al azafrán y carne picada, arroz persa, tomate y pimiento asados.</p>
         <span class="price">32,50 €</span>
       </article>
       <article class="star is-persian">
-        <div class="star-pic"><img src="img/kubideh.jpg" alt="Kebab koobideh" width="727" height="513" loading="lazy"><span class="badge" data-en="Persian recipe">Receta persa</span></div>
+        <div class="star-pic"><img src="img/kubideh.jpg" alt="Kebab koobideh" width="1200" height="920" loading="lazy"><span class="badge" data-en="Persian recipe">Receta persa</span></div>
         <h3>Kebab koobideh</h3>
         <p data-en="Two skewers of minced meat, the most loved kebab in Iran, with Persian rice.">Dos pinchos de carne picada, el kebab más querido de Irán, con arroz persa.</p>
         <span class="price" data-en="Ask our team">Consultar en sala</span>
@@ -172,7 +163,7 @@
         <span class="price">9,50 €</span>
       </article>
       <article class="star">
-        <div class="star-pic"><img src="img/paella.jpg" alt="Paella de marisco" width="667" height="445" loading="lazy"></div>
+        <div class="star-pic"><img src="img/paella.jpg" alt="Paella de marisco" width="1200" height="800" loading="lazy"></div>
         <h3 data-en="Seafood paella">Paella de marisco</h3>
         <p data-en="For one or for two, with king prawns and clams.">Para uno o para dos, con gambones y almejas.</p>
         <span class="price">16,00 / 28,90 €</span>
@@ -196,16 +187,24 @@
         <span class="price">7,00 €</span>
       </article>
       <article class="star">
-        <div class="star-pic"><img src="img/chuleton.jpg" alt="Chuletón" width="692" height="461" loading="lazy"></div>
-        <h3 data-en="Rib steak, 520 g">Chuletón, 520 g</h3>
+        <div class="star-pic"><img src="img/solomillo.jpg" alt="Solomillo a la pimienta" width="1200" height="960" loading="lazy"></div>
+        <h3 data-en="Beef tenderloin, pepper sauce">Solomillo a la pimienta</h3>
         <p data-en="With fries or salad.">Con patatas fritas o ensalada.</p>
-        <span class="price">32,50 €</span>
+        <span class="price">27,00 €</span>
       </article>
     </div>
   </section>
 
+  <!-- A window onto the koobideh -->
+  <section class="window" data-bg="kubideh" aria-labelledby="window-title">
+    <div class="wrap window-in">
+      <h2 id="window-title" data-r data-en-html="Saffron is <em>our signature</em>">El azafrán es <em>nuestra firma</em></h2>
+      <p data-r data-en="Kebab koobideh: two skewers of minced meat with Persian rice crowned in saffron. The way it is served in Tehran.">Kebab koobideh: dos pinchos de carne picada con arroz persa coronado de azafrán. Como se sirve en Teherán.</p>
+    </div>
+  </section>
+
   <!-- Saffron: the name on the door -->
-  <section class="saffron" id="azafran" aria-labelledby="azafran-title">
+  <section class="saffron solid" id="azafran" aria-labelledby="azafran-title">
     <div class="wrap saffron-in">
       <div class="saffron-pics">
         <div class="pic pic-a" data-parallax="0.08"><img src="img/kebab-barg.jpg" alt="Arroz persa al azafrán con pincho de carne" data-en-alt="Saffron Persian rice with beef kebab" width="734" height="538" loading="lazy"></div>
@@ -216,7 +215,7 @@
         </svg>
       </div>
       <div class="saffron-copy">
-        <h2 id="azafran-title" data-r data-en-html="Saffron is <em>our signature</em>">El azafrán es <em>nuestra firma</em></h2>
+        <h2 id="azafran-title" data-r data-en-html="Threads from Iran, <em>gold on the rice</em>">Hebras de Irán, <em>oro sobre el arroz</em></h2>
         <p class="lead" data-r data-en="It is the name over our door. We bring it in threads from Iran and let it bloom in warm water before it reaches the pan. It turns the rice gold, marinates the chicken and flavours the ice cream.">Es el nombre de nuestra puerta. Lo traemos en hebras desde Irán y lo dejamos reposar en agua tibia antes de que toque la sartén. Dora el arroz, marina el pollo y perfuma el helado.</p>
         <ul class="facts">
           <li data-r><svg aria-hidden="true"><use href="#logo-flor"/></svg><div><h3 data-en="Threads from Iran">Hebras de Irán</h3><p data-en="Real saffron, never powder or colouring.">Azafrán de verdad, nunca polvo ni colorante.</p></div></li>
@@ -229,7 +228,7 @@
   </section>
 
   <!-- The menu: one tab per course -->
-  <section class="carta" id="carta" aria-labelledby="carta-title">
+  <section class="carta solid" id="carta" aria-labelledby="carta-title">
     <div class="wrap">
       <div class="section-head" data-r>
         <h2 id="carta-title" data-en-html="Our <em>menu</em>">Nuestra <em>carta</em></h2>
@@ -748,7 +747,7 @@
   </section>
 
   <!-- Our story -->
-  <section class="story" id="historia" aria-labelledby="historia-title">
+  <section class="story solid" id="historia" aria-labelledby="historia-title">
     <div class="wrap story-in">
       <div class="story-copy">
         <h2 id="historia-title" data-r data-en-html="From Tehran <em>to the Eixample</em>">De Teherán <em>al Eixample</em></h2>
@@ -766,13 +765,13 @@
           <img src="img/equipo.jpg" alt="El equipo de Azafrán Pérsico" data-en-alt="The Azafrán Pérsico team" width="900" height="1100" loading="lazy" onerror="this.remove()">
           <figcaption class="slot-note" data-en="Photo to add: the owner or the chef">Foto pendiente: el dueño o el chef</figcaption>
         </figure>
-        <div class="pic pic-float" data-parallax="-0.1"><img src="img/pollo-catalana.jpg" alt="Pollo a la catalana" width="737" height="470" loading="lazy"></div>
+        <div class="pic pic-float" data-parallax="-0.1"><img src="img/pollo-catalana.jpg" alt="Pollo a la catalana" width="1200" height="960" loading="lazy"></div>
       </div>
     </div>
   </section>
 
   <!-- Visit us: the room and how to get here -->
-  <section class="visit" id="local" aria-labelledby="local-title">
+  <section class="visit solid" id="local" aria-labelledby="local-title">
     <div class="wrap">
       <div class="section-head" data-r>
         <h2 id="local-title" data-en-html="Come and <em>visit us</em>">Ven a <em>visitarnos</em></h2>
@@ -801,7 +800,7 @@
   </section>
 
   <!-- Booking -->
-  <section class="book" id="reservar" aria-labelledby="reservar-title">
+  <section class="book" data-bg="paella" id="reservar" aria-labelledby="reservar-title">
     <div class="wrap">
       <div class="book-card" data-r>
         <div class="book-copy">
@@ -823,7 +822,7 @@
 
 </main>
 
-<footer class="foot">
+<footer class="foot solid">
   <div class="wrap">
     <svg class="foot-logo" role="img" aria-label="Azafrán Pérsico"><use href="#logo"/></svg>
     <div class="foot-grid">

@@ -69,6 +69,14 @@
   }
   setInterval(updateOpenNow, 60000);
 
+  // ---------- The dish behind the page: each open section picks its photo ----------
+  const bds = $$('.bd');
+  const setBg = (name) => bds.forEach((img) => img.classList.toggle('is-on', img.dataset.bd === name));
+  if ('IntersectionObserver' in window) {
+    const bgio = new IntersectionObserver((entries) => entries.forEach((e) => { if (e.isIntersecting) setBg(e.target.dataset.bg); }), { rootMargin: '-45% 0px -45% 0px' });
+    $$('[data-bg]').forEach((el) => bgio.observe(el));
+  }
+
   // ---------- Header turns solid after the first bit of scroll ----------
   const nav = $('#nav');
   const onScroll = () => nav.classList.toggle('is-solid', scrollY > 40);
