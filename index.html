@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Azafrán Pérsico · Restaurante persa y mediterráneo en Barcelona</title>
+  <meta name="description" content="Cocina persa y mediterránea en el Eixample de Barcelona, hecha con azafrán auténtico de Irán. Carrer de Girona 127. Reservas por teléfono o WhatsApp: 665 42 12 88.">
+  <meta name="theme-color" content="#1c1310">
+  <meta property="og:title" content="Azafrán Pérsico · Barcelona">
+  <meta property="og:description" content="Cocina persa y mediterránea con azafrán de Irán, en el Eixample.">
+  <meta property="og:type" content="restaurant">
+  <link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Azafrán Pérsico",
+    "servesCuisine": ["Persian", "Mediterranean", "Spanish"],
+    "priceRange": "€€",
+    "telephone": "+34 665 42 12 88",
+    "url": "https://azafranpersico.online/",
+    "sameAs": ["https://www.instagram.com/azafran_persico/"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrer de Girona, 127",
+      "addressLocality": "Barcelona",
+      "postalCode": "08037",
+      "addressCountry": "ES"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "11:30",
+      "closes": "23:59"
+    }],
+    "acceptsReservations": "True"
+  }
+  </script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- The arch: the pointed arch of Persian doorways, and the petal of our logo. Every photo sits inside it. -->
+    <clipPath id="arch" clipPathUnits="objectBoundingBox">
+      <path d="M0,1 L0,0.42 C0,0.22 0.3,0.12 0.5,0 C0.7,0.12 1,0.22 1,0.42 L1,1 Z"/>
+    </clipPath>
+    <!-- A saffron crocus, drawn: three petals and the three red threads. Shown until a real photo is added. -->
+    <symbol id="flor" viewBox="0 0 120 120">
+      <path d="M60 104 C46 82 34 62 40 38 C44 24 54 18 60 14 C66 18 76 24 80 38 C86 62 74 82 60 104 Z" fill="var(--petal)"/>
+      <path d="M58 104 C40 92 18 78 16 56 C15 44 20 36 24 32 C34 36 46 46 52 62 C58 78 60 92 58 104 Z" fill="var(--petal-2)"/>
+      <path d="M62 104 C80 92 102 78 104 56 C105 44 100 36 96 32 C86 36 74 46 68 62 C62 78 60 92 62 104 Z" fill="var(--petal-2)"/>
+      <path d="M60 100 C58 76 52 56 44 40" stroke="var(--thread)" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <path d="M60 100 C60 74 60 52 60 30" stroke="var(--thread)" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <path d="M60 100 C62 76 68 56 76 40" stroke="var(--thread)" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <path d="M41 36 L48 44 M57 26 L63 26 M79 36 L72 44" stroke="var(--thread)" stroke-width="7" stroke-linecap="round"/>
+    </symbol>
+    <!-- The logo mark: three arches, like the three petals of the flower. -->
+    <symbol id="mark" viewBox="0 0 66 48">
+      <path d="M0,48 V24 C0,13 9,8 12,0 C15,8 24,13 24,24 V48 Z" fill="currentColor"/>
+      <path d="M21,48 V20 C21,9 30,4 33,-4 C36,4 45,9 45,20 V48 Z" fill="currentColor" transform="translate(0 4)"/>
+      <path d="M42,48 V24 C42,13 51,8 54,0 C57,8 66,13 66,24 V48 Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<a class="skip" href="#carta" data-en="Skip to the menu">Ir a la carta</a>
+
+<!-- The bar that stays with you once the first screen is gone -->
+<header class="bar" id="bar">
+  <a class="wordmark" href="#top" aria-label="Azafrán Pérsico, inicio">
+    <svg class="wordmark-mark" aria-hidden="true"><use href="#flor"/></svg>
+    <span>Azafrán Pérsico</span>
+  </a>
+  <nav class="bar-links" aria-label="Secciones">
+    <a href="#azafran" data-en="Saffron">Azafrán</a>
+    <a href="#carta" data-en="Menu">Carta</a>
+    <a href="#historia" data-en="Our story">Historia</a>
+    <a href="#local" data-en="The room">El local</a>
+  </nav>
+  <div class="bar-end">
+    <button class="lang" type="button" data-lang-toggle aria-label="Switch to English">EN</button>
+    <a class="btn btn-small" href="#reservar" data-en="Book a table">Reservar</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1. First screen: the name, what it is, and five folders that open the rest of the page -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-top">
+      <a class="wordmark" href="#top" aria-label="Azafrán Pérsico">
+        <svg class="wordmark-mark" aria-hidden="true"><use href="#flor"/></svg>
+      </a>
+      <button class="lang lang-hero" type="button" data-lang-toggle aria-label="Switch to English">English</button>
+    </div>
+
+    <h1 id="hero-title" class="hero-title">Azafrán Pérsico</h1>
+    <p class="hero-sub" data-en="Persian and Mediterranean cooking in the Eixample, made with real saffron from Iran.">Cocina persa y mediterránea en el Eixample, hecha con azafrán auténtico de Irán.</p>
+
+    <nav class="folders" aria-label="Secciones de la página">
+      <a class="folder f5" href="#reservar"><span class="tab" data-en="Book">Reservar</span></a>
+      <a class="folder f4" href="#local"><span class="tab" data-en="The room">El local</span></a>
+      <a class="folder f3" href="#historia"><span class="tab" data-en="Our story">Historia</span></a>
+      <a class="folder f2" href="#carta"><span class="tab" data-en="Menu">Carta</span></a>
+      <div class="folder f1">
+        <span class="tab" data-en="Saffron">Azafrán</span>
+        <div class="folder-body">
+          <a class="btn btn-light" href="#reservar" data-en="Book a table">Reservar mesa</a>
+          <p class="open-now" data-open-now>Martes a domingo, de 11:30 a 00:00</p>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <!-- 2. The front folder continues: who we are in one sentence, with the food beside the words -->
+  <section class="intro field-red" aria-label="Quiénes somos">
+    <p class="statement" data-en-html="We cooked for years in Tehran. Now in the Eixample we bring together slow stews <span class='thumb slot arch' data-photo='khoresh'><img src='img/khoresh.jpg' alt='' onerror='this.remove()'></span>, saffron rice <span class='thumb slot arch' data-photo='arroz-azafran'><img src='img/arroz-azafran.jpg' alt='' onerror='this.remove()'></span> and the best of the Mediterranean <span class='thumb slot arch' data-photo='paella'><img src='img/paella.jpg' alt='' onerror='this.remove()'></span>.">
+      Cocinamos años en Teherán. Hoy, en el Eixample, juntamos guisos lentos
+      <span class="thumb slot arch" data-photo="khoresh"><img src="img/khoresh.jpg" alt="" onerror="this.remove()"></span>,
+      arroz con azafrán
+      <span class="thumb slot arch" data-photo="arroz-azafran"><img src="img/arroz-azafran.jpg" alt="" onerror="this.remove()"></span>
+      y lo mejor del Mediterráneo
+      <span class="thumb slot arch" data-photo="paella"><img src="img/paella.jpg" alt="" onerror="this.remove()"></span>.
+    </p>
+  </section>
+
+  <!-- 3. Saffron: the name on the door, and the dishes that carry it -->
+  <section class="saffron field-red" id="azafran" aria-labelledby="azafran-title">
+    <div class="saffron-pic">
+      <figure class="slot arch big" data-photo="azafran">
+        <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+        <img src="img/azafran.jpg" alt="Hebras de azafrán de Irán" data-en-alt="Threads of Iranian saffron" width="1200" height="1200" loading="lazy" onerror="this.remove()">
+        <figcaption class="slot-note" data-en="Photo to add: your saffron threads, close up">Foto pendiente: vuestras hebras de azafrán, de cerca</figcaption>
+      </figure>
+    </div>
+
+    <div class="saffron-text">
+      <h2 id="azafran-title" data-en="Iranian saffron, in nearly every dish">Azafrán de Irán, en casi cada plato</h2>
+      <p class="saffron-lead" data-en="It is the name over our door. We bring it in threads from Iran and bloom it in warm water before it reaches the pan. No colouring, no substitutes.">Es el nombre de nuestra puerta. Lo traemos en hebras desde Irán y lo dejamos reposar en agua tibia antes de que toque la sartén. Sin colorantes ni sustitutos.</p>
+
+      <div class="picker" data-picker>
+        <div class="picker-tabs" role="tablist" aria-label="Platos con azafrán">
+          <button role="tab" id="t-pollo" aria-controls="p-pollo" aria-selected="true" data-en="Saffron chicken">Pollo al azafrán</button>
+          <button role="tab" id="t-cordero" aria-controls="p-cordero" aria-selected="false" tabindex="-1" data-en="Aromatic lamb">Cordero aromático</button>
+          <button role="tab" id="t-helado" aria-controls="p-helado" aria-selected="false" tabindex="-1" data-en="Persian ice cream">Helado persa</button>
+        </div>
+        <div class="picker-panel" role="tabpanel" id="p-pollo" aria-labelledby="t-pollo" data-photo-target="pollo-azafran">
+          <h3 data-en="Saffron chicken with rice">Pollo al azafrán con arroz</h3>
+          <p data-en="Chicken marinated overnight in saffron and lemon, roasted and served on Persian rice with its golden crust, the tahdig.">Pollo marinado toda la noche en azafrán y limón, asado y servido sobre arroz persa con su costra dorada, el tahdig.</p>
+          <p class="picker-price">18,90 €</p>
+        </div>
+        <div class="picker-panel" role="tabpanel" id="p-cordero" aria-labelledby="t-cordero" data-photo-target="cordero" hidden>
+          <h3 data-en="Aromatic lamb with rice, 500 g">Cordero aromático con arroz, 500 g</h3>
+          <p data-en="Lamb cooked for hours with Persian spices and saffron until it comes away from the bone. Enough to share.">Cordero cocinado durante horas con especias persas y azafrán, hasta que se separa del hueso. Da para compartir.</p>
+          <p class="picker-price">38,00 €</p>
+        </div>
+        <div class="picker-panel" role="tabpanel" id="p-helado" aria-labelledby="t-helado" data-photo-target="helado-persa" hidden>
+          <h3 data-en="Persian ice cream">Helado persa</h3>
+          <p data-en="Bastani: saffron and pistachio ice cream with a touch of rose water. The way it is eaten on summer evenings in Tehran.">Bastani: helado de azafrán y pistacho con un toque de agua de rosas. Como se toma en las tardes de verano de Teherán.</p>
+          <p class="picker-price">6,50 €</p>
+        </div>
+      </div>
+
+      <div class="cells">
+        <a class="cell cell-ink" href="#reservar" data-en="Book a table">Reservar mesa</a>
+        <a class="cell cell-tone" href="#carta" data-en="See the full menu">Ver toda la carta</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. The whole menu, with a photo beside every dish -->
+  <section class="carta" id="carta" aria-labelledby="carta-title">
+    <div class="carta-head">
+      <h2 id="carta-title" data-en="The menu">La carta</h2>
+      <p class="carta-intro" data-en="Persian recipes come first in each course and carry the saffron mark. Prices include VAT. Please ask our team about allergens.">Las recetas persas van primero en cada apartado y llevan la marca del azafrán. Precios con IVA. Pregunta a nuestro equipo por los alérgenos.</p>
+    </div>
+    <nav class="carta-nav" aria-label="Apartados de la carta">
+      <!-- menunav:start -->
+          <a href="#carta-entrantes" data-en="Starters">Entrantes</a>
+          <a href="#carta-tapas" data-en="Tapas">Tapas</a>
+          <a href="#carta-pescados" data-en="Fish and seafood">Pescados</a>
+          <a href="#carta-carnes" data-en="Meat">Carnes</a>
+          <a href="#carta-postres" data-en="Desserts">Postres</a>
+          <!-- menunav:end -->
+    </nav>
+    <div class="courses">
+      <!-- menu:start -->
+      <div class="course" id="carta-entrantes">
+        <div class="course-head">
+          <h3 data-en="Starters">Entrantes</h3>
+          <p class="course-count" data-en="6 dishes">6 platos</p>
+        </div>
+        <ul class="dishes">
+          <li class="dish is-persian">
+            <figure class="slot arch dish-pic" data-photo="olivieh">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/olivieh.jpg" alt="Ensalada rusa estilo persa" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Persian Olivier salad">Ensalada rusa estilo persa</span><span class="dish-price">7,00 €</span></p>
+              <p class="dish-desc" data-en="Olivieh, the potato salad of Tehran homes, with toasts.">Olivieh, la ensaladilla de patata de las casas de Teherán, con tostadas.</p>
+              <p class="dish-note" data-en="Persian recipe, made with saffron">Receta persa, con azafrán</p>
+            </div>
+          </li>
+          <li class="dish is-persian">
+            <figure class="slot arch dish-pic" data-photo="kashk-bademjan">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/kashk-bademjan.jpg" alt="Crema de berenjena estilo persa" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Persian aubergine dip">Crema de berenjena estilo persa</span><span class="dish-price">9,50 €</span></p>
+              <p class="dish-desc" data-en="Kashk-e bademjan: smoky aubergine with kashk, fried onion and mint, with toasts.">Kashk-e bademjan: berenjena ahumada con kashk, cebolla frita y menta, con tostadas.</p>
+              <p class="dish-note" data-en="Persian recipe, made with saffron">Receta persa, con azafrán</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="ensalada-verde">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/ensalada-verde.jpg" alt="Ensalada verde" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Green salad">Ensalada verde</span><span class="dish-price">8,50 €</span></p>
+              <p class="dish-desc" data-en="Mixed leaves, avocado, egg, carrot and tomato.">Mezclum, aguacate, huevo, zanahoria y tomate.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="tomate-mozzarella">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/tomate-mozzarella.jpg" alt="Tomate y mozzarella" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Tomato and mozzarella">Tomate y mozzarella</span><span class="dish-price">10,00 €</span></p>
+              <p class="dish-desc" data-en="Ripe tomato, mozzarella and olive oil.">Tomate maduro, mozzarella y aceite de oliva.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="queso-cabra">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/queso-cabra.jpg" alt="Ensalada de queso de cabra" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Goat cheese salad">Ensalada de queso de cabra</span><span class="dish-price">10,00 €</span></p>
+              <p class="dish-desc" data-en="With walnuts.">Con nueces.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="verduras">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/verduras.jpg" alt="Verduras a la plancha" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Grilled vegetables">Verduras a la plancha</span><span class="dish-price">8,00 €</span></p>
+              <p class="dish-desc" data-en="Seasonal vegetables from the griddle.">Verduras de temporada a la plancha.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="course" id="carta-tapas">
+        <div class="course-head">
+          <h3 data-en="Tapas">Tapas</h3>
+          <p class="course-count" data-en="12 dishes">12 platos</p>
+        </div>
+        <ul class="dishes">
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="pan-tomate">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/pan-tomate.jpg" alt="Pan con tomate" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Bread with tomato">Pan con tomate</span><span class="dish-price">3,50 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="patatas-fritas">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/patatas-fritas.jpg" alt="Patatas fritas" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="French fries">Patatas fritas</span><span class="dish-price">4,00 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="padron">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/padron.jpg" alt="Pimientos del Padrón" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Padrón peppers">Pimientos del Padrón</span><span class="dish-price">5,90 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="bravas">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/bravas.jpg" alt="Patatas bravas" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Patatas bravas">Patatas bravas</span><span class="dish-price">7,00 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="croquetas">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/croquetas.jpg" alt="Croquetas, 4 u." width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Croquettes, 4 pcs">Croquetas, 4 u.</span><span class="dish-price">8,00 €</span></p>
+              <p class="dish-desc" data-en="Assorted, depending on the day.">Variadas, según el día.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="champinones">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/champinones.jpg" alt="Champiñones salteados" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Sautéed mushrooms">Champiñones salteados</span><span class="dish-price">8,50 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="anchoas">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/anchoas.jpg" alt="Anchoas con tostadas" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Anchovies with toast">Anchoas con tostadas</span><span class="dish-price">8,50 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="alitas">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/alitas.jpg" alt="Alitas de pollo" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Chicken wings">Alitas de pollo</span><span class="dish-price">8,90 €</span></p>
+              <p class="dish-desc" data-en="Glazed, with sesame.">Glaseadas, con sésamo.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="gyozas">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/gyozas.jpg" alt="Gyozas, 6 u." width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Gyozas, 6 pcs">Gyozas, 6 u.</span><span class="dish-price">11,00 €</span></p>
+              <p class="dish-desc" data-en="With soy dipping sauce.">Con salsa de soja para mojar.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="tabla-queso">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/tabla-queso.jpg" alt="Tabla de quesos" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Cheese board">Tabla de quesos</span><span class="dish-price">15,50 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="jamon">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/jamon.jpg" alt="Tabla de jamón ibérico" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Iberian ham board">Tabla de jamón ibérico</span><span class="dish-price">17,00 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="mini-burgers">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/mini-burgers.jpg" alt="Tabla de mini hamburguesas" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Mini burger board">Tabla de mini hamburguesas</span><span class="dish-price">20,50 €</span></p>
+              <p class="dish-desc" data-en="Three different flavours, with fries.">Tres sabores distintos, con patatas.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="course" id="carta-pescados">
+        <div class="course-head">
+          <h3 data-en="Fish and seafood">Pescados</h3>
+          <p class="course-count" data-en="6 dishes">6 platos</p>
+        </div>
+        <ul class="dishes">
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="tartar-salmon">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/tartar-salmon.jpg" alt="Tartar de salmón con aguacate" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Salmon tartare with avocado">Tartar de salmón con aguacate</span><span class="dish-price">15,90 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="pescado-dia">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/pescado-dia.jpg" alt="Pescado del día" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Fish of the day">Pescado del día</span><span class="dish-price">17,50 €</span></p>
+              <p class="dish-desc" data-en="With fries or salad.">Con patatas o ensalada.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="fish-chips">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/fish-chips.jpg" alt="Fish and chips" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Fish and chips">Fish and chips</span><span class="dish-price">18,80 €</span></p>
+              <p class="dish-desc" data-en="With tartare sauce.">Con salsa tártara.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="tartar-atun">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/tartar-atun.jpg" alt="Tartar de atún fresco" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Fresh tuna tartare">Tartar de atún fresco</span><span class="dish-price">19,90 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="gambones">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/gambones.jpg" alt="Gambones a la plancha" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Grilled king prawns">Gambones a la plancha</span><span class="dish-price">26,90 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="paella">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/paella.jpg" alt="Paella de marisco" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Seafood paella">Paella de marisco</span><span class="dish-price">16,00 / 28,90 €</span></p>
+              <p class="dish-desc" data-en="For one or for two.">Para una persona o para dos.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="course" id="carta-carnes">
+        <div class="course-head">
+          <h3 data-en="Meat">Carnes</h3>
+          <p class="course-count" data-en="9 dishes">9 platos</p>
+        </div>
+        <ul class="dishes">
+          <li class="dish is-persian">
+            <figure class="slot arch dish-pic" data-photo="pollo-azafran">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/pollo-azafran.jpg" alt="Pollo al azafrán con arroz" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Saffron chicken with rice">Pollo al azafrán con arroz</span><span class="dish-price">18,90 €</span></p>
+              <p class="dish-desc" data-en="Marinated in Iranian saffron, with Persian rice and tahdig.">Marinado en azafrán de Irán, con arroz persa y tahdig.</p>
+              <p class="dish-note" data-en="Persian recipe, made with saffron">Receta persa, con azafrán</p>
+            </div>
+          </li>
+          <li class="dish is-persian">
+            <figure class="slot arch dish-pic" data-photo="khoresh">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/khoresh.jpg" alt="Guiso persa del día con arroz" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Persian stew of the day">Guiso persa del día con arroz</span><span class="dish-price">17,50 €</span></p>
+              <p class="dish-desc" data-en="A slow-cooked khoresh. Ask which one is on today.">Khoresh hecho a fuego lento. Pregunta cuál toca hoy.</p>
+              <p class="dish-note" data-en="Persian recipe, made with saffron">Receta persa, con azafrán</p>
+            </div>
+          </li>
+          <li class="dish is-persian">
+            <figure class="slot arch dish-pic" data-photo="cordero">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/cordero.jpg" alt="Cordero aromático con arroz, 500 g" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Aromatic lamb with rice, 500 g">Cordero aromático con arroz, 500 g</span><span class="dish-price">38,00 €</span></p>
+              <p class="dish-desc" data-en="Cooked for hours with Persian spices and saffron.">Cocinado durante horas con especias persas y azafrán.</p>
+              <p class="dish-note" data-en="Persian recipe, made with saffron">Receta persa, con azafrán</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="pollo-catalana">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/pollo-catalana.jpg" alt="Pollo a la catalana" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Catalan-style chicken">Pollo a la catalana</span><span class="dish-price">15,90 €</span></p>
+              <p class="dish-desc" data-en="Braised with dried fruit, served on mash.">Guisado con frutos secos, sobre puré.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="lacon">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/lacon.jpg" alt="Lacón con patatas" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Cured pork shoulder with potatoes">Lacón con patatas</span><span class="dish-price">14,90 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="hamburguesa">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/hamburguesa.jpg" alt="Hamburguesa de solomillo" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Sirloin burger">Hamburguesa de solomillo</span><span class="dish-price">19,50 €</span></p>
+              <p class="dish-desc" data-en="Sirloin beef, with fries.">Carne de solomillo, con patatas.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="steak-tartar">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/steak-tartar.jpg" alt="Steak tartar sobre tuétano" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Steak tartare on bone marrow">Steak tartar sobre tuétano</span><span class="dish-price">25,00 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="solomillo">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/solomillo.jpg" alt="Solomillo a la pimienta" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Beef tenderloin, pepper sauce">Solomillo a la pimienta</span><span class="dish-price">27,00 €</span></p>
+              <p class="dish-desc" data-en="With fries or salad.">Con patatas o ensalada.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="chuleton">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/chuleton.jpg" alt="Chuletón, 520 g" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Rib steak, 520 g">Chuletón, 520 g</span><span class="dish-price">32,50 €</span></p>
+              <p class="dish-desc" data-en="With fries or salad.">Con patatas o ensalada.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="course" id="carta-postres">
+        <div class="course-head">
+          <h3 data-en="Desserts">Postres</h3>
+          <p class="course-count" data-en="5 dishes">5 platos</p>
+        </div>
+        <ul class="dishes">
+          <li class="dish is-persian">
+            <figure class="slot arch dish-pic" data-photo="helado-persa">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/helado-persa.jpg" alt="Helado persa" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Persian ice cream">Helado persa</span><span class="dish-price">6,50 €</span></p>
+              <p class="dish-desc" data-en="Bastani with saffron, pistachio and rose water.">Bastani de azafrán y pistacho, con agua de rosas.</p>
+              <p class="dish-note" data-en="Persian recipe, made with saffron">Receta persa, con azafrán</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="crema-catalana">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/crema-catalana.jpg" alt="Crema catalana" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Crema catalana">Crema catalana</span><span class="dish-price">5,00 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="tarta-queso">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/tarta-queso.jpg" alt="Tarta de queso" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Cheesecake">Tarta de queso</span><span class="dish-price">5,50 €</span></p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="mousse">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/mousse.jpg" alt="Mousse de chocolate" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Chocolate mousse">Mousse de chocolate</span><span class="dish-price">6,50 €</span></p>
+              <p class="dish-desc" data-en="With nuts.">Con frutos secos.</p>
+            </div>
+          </li>
+          <li class="dish">
+            <figure class="slot arch dish-pic" data-photo="bizcocho">
+              <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+              <img src="img/bizcocho.jpg" alt="Bizcocho" width="160" height="200" loading="lazy" onerror="this.remove()">
+            </figure>
+            <div class="dish-text">
+              <p class="dish-line"><span class="dish-name" data-en="Sponge cake">Bizcocho</span><span class="dish-price">4,50 €</span></p>
+              <p class="dish-desc" data-en="With candied orange.">Con naranja confitada.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- menu:end -->
+    </div>
+    <div class="carta-more">
+      <h3 data-en="Breakfast and café">Desayunos y cafetería</h3>
+      <p data-en="From 11:30: coffee and tea, croissants and pastries, and filled bocadillos, whole or half. Ask about today's lunch menu.">Desde las 11:30: café y té, croissants y bollería, y bocadillos enteros o medios. Pregunta por el menú del mediodía.</p>
+    </div>
+  </section>
+
+  <!-- 5. Our story: from Tehran to the Eixample -->
+  <section class="historia" id="historia" aria-labelledby="historia-title">
+    <div class="panel">
+      <h2 id="historia-title" data-en="From Tehran to the Eixample">De Teherán al Eixample</h2>
+      <figure class="slot arch portrait" data-photo="equipo">
+        <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
+        <img src="img/equipo.jpg" alt="El equipo de Azafrán Pérsico" data-en-alt="The Azafrán Pérsico team" width="900" height="1100" loading="lazy" onerror="this.remove()">
+        <figcaption class="slot-note" data-en="Photo to add: the owner or the chef">Foto pendiente: el dueño o el chef</figcaption>
+      </figure>
+      <div class="historia-text">
+        <div>
+          <h3 data-en="Years of cooking in Tehran">Años de cocina en Teherán</h3>
+          <p data-en="Before Barcelona we ran several restaurants in Tehran. There we learned that patience is an ingredient too: rice that cooks slowly, stews that take hours, saffron left to bloom before it is used.">Antes de Barcelona llevamos varios restaurantes en Teherán. Allí aprendimos que la paciencia también es un ingrediente: el arroz que se cuece despacio, el guiso que pide horas, el azafrán que reposa antes de usarse.</p>
+        </div>
+        <div>
+          <h3 data-en="A table in the Eixample">Una mesa en el Eixample</h3>
+          <p data-en="On the corner of Girona and Mallorca we put that kitchen next to the Mediterranean: tapas, fresh fish and paella beside saffron chicken and kashk-e bademjan. A calm room, and a host who looks after every table.">En la esquina de Girona con Mallorca juntamos esa cocina con el Mediterráneo: tapas, pescado fresco y paella al lado del pollo al azafrán y el kashk-e bademjan. Un comedor tranquilo y un anfitrión pendiente de cada mesa.</p>
+        </div>
+        <a class="btn btn-accent" href="#reservar" data-en="Come and taste it">Ven a probarlo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. The room, inside and out -->
+  <section class="local" id="local" aria-labelledby="local-title">
+    <div class="tiles">
+      <div class="tile t-red"><h2 id="local-title" class="tile-big" data-en="The room">El local</h2><p class="tile-cap" data-en="inside and out">dentro y fuera</p></div>
+      <figure class="tile slot photo-tile" data-photo="fachada"><svg class="flor" aria-hidden="true"><use href="#flor"/></svg><img src="img/fachada.jpg" alt="La fachada de Azafrán Pérsico en la esquina de Girona con Mallorca" data-en-alt="The front of Azafrán Pérsico on the corner of Girona and Mallorca" width="800" height="800" loading="lazy" onerror="this.remove()"><figcaption class="slot-note" data-en="Photo to add: the front">Foto pendiente: la fachada</figcaption></figure>
+      <div class="tile t-gold"><p class="tile-big">127</p><p class="tile-cap">Carrer de Girona</p></div>
+      <figure class="tile slot photo-tile" data-photo="sala-1"><svg class="flor" aria-hidden="true"><use href="#flor"/></svg><img src="img/sala-1.jpg" alt="El comedor" data-en-alt="The dining room" width="800" height="800" loading="lazy" onerror="this.remove()"><figcaption class="slot-note" data-en="Photo to add: the dining room">Foto pendiente: el comedor</figcaption></figure>
+      <div class="tile t-ink"><p class="tile-big">4,8</p><p class="tile-cap" data-en="on Google">en Google</p></div>
+      <figure class="tile slot photo-tile" data-photo="sala-2"><svg class="flor" aria-hidden="true"><use href="#flor"/></svg><img src="img/sala-2.jpg" alt="Una mesa puesta" data-en-alt="A laid table" width="800" height="800" loading="lazy" onerror="this.remove()"><figcaption class="slot-note" data-en="Photo to add: a laid table">Foto pendiente: una mesa puesta</figcaption></figure>
+      <div class="tile t-stone"><p class="tile-big">11:30</p><p class="tile-cap" data-en="we open, Tuesday to Sunday">abrimos, de martes a domingo</p></div>
+      <figure class="tile slot photo-tile" data-photo="detalle"><svg class="flor" aria-hidden="true"><use href="#flor"/></svg><img src="img/detalle.jpg" alt="Té persa servido en vaso" data-en-alt="Persian tea served in a glass" width="800" height="800" loading="lazy" onerror="this.remove()"><figcaption class="slot-note" data-en="Photo to add: a detail, tea or saffron">Foto pendiente: un detalle, té o azafrán</figcaption></figure>
+      <div class="tile t-gold"><p class="tile-big is-long">20–30 €</p><p class="tile-cap" data-en="per person">por persona</p></div>
+      <figure class="tile slot photo-tile" data-photo="noche"><svg class="flor" aria-hidden="true"><use href="#flor"/></svg><img src="img/noche.jpg" alt="El local de noche" data-en-alt="The restaurant at night" width="800" height="800" loading="lazy" onerror="this.remove()"><figcaption class="slot-note" data-en="Photo to add: the room at night">Foto pendiente: el local de noche</figcaption></figure>
+      <div class="tile t-red"><svg class="tile-mark" aria-hidden="true"><use href="#flor"/></svg><p class="tile-cap" data-en="Tehran, Barcelona">Teherán, Barcelona</p></div>
+      <div class="tile t-ink"><p class="tile-big">00:00</p><p class="tile-cap" data-en="last table, until midnight">hasta medianoche</p></div>
+    </div>
+  </section>
+
+  <!-- 7. Booking: a coupon that becomes a WhatsApp message -->
+  <section class="reservar" id="reservar" aria-labelledby="reservar-title">
+    <form class="coupon" data-booking novalidate>
+      <div class="coupon-left">
+        <h2 id="reservar-title" data-en="Book your table">Reserva tu mesa</h2>
+        <p data-en="Fill it in and it opens WhatsApp with your message ready. We confirm as soon as we see it.">Rellénalo y se abre WhatsApp con tu mensaje listo. Te confirmamos en cuanto lo veamos.</p>
+        <p class="coupon-call"><span data-en="Prefer to call?">¿Prefieres llamar?</span> <a href="tel:+34665421288">665 42 12 88</a></p>
+      </div>
+      <div class="coupon-right">
+        <label class="sr" for="b-name" data-en="Name">Nombre</label>
+        <input id="b-name" name="name" autocomplete="name" placeholder="Tu nombre" data-en-ph="Your name" required>
+        <div class="coupon-row">
+          <label class="sr" for="b-date" data-en="Day">Día</label>
+          <input id="b-date" name="date" type="date" required>
+          <label class="sr" for="b-time" data-en="Time">Hora</label>
+          <select id="b-time" name="time" required></select>
+        </div>
+        <label class="sr" for="b-people" data-en="People">Personas</label>
+        <select id="b-people" name="people" required></select>
+        <p class="coupon-msg" data-booking-msg aria-live="polite"></p>
+        <button class="coupon-submit" type="submit" data-en="Send on WhatsApp">Enviar por WhatsApp</button>
+      </div>
+    </form>
+  </section>
+
+</main>
+
+<footer class="foot" aria-labelledby="foot-title">
+  <h2 id="foot-title" class="sr">Azafrán Pérsico</h2>
+  <div class="foot-mark" aria-hidden="true">
+    <span class="fm fm-1"></span><span class="fm fm-2"></span><span class="fm fm-3"></span>
+  </div>
+  <p class="fm-word" aria-hidden="true">Azafrán Pérsico</p>
+  <div class="foot-grid">
+    <nav class="foot-links" aria-label="Pie de página">
+      <a href="#azafran" data-en="Saffron">Azafrán</a>
+      <a href="#carta" data-en="Menu">Carta</a>
+      <a href="#historia" data-en="Our story">Historia</a>
+      <a href="#local" data-en="The room">El local</a>
+      <a href="#reservar" data-en="Book">Reservar</a>
+      <a href="https://www.instagram.com/azafran_persico/" rel="noopener">Instagram</a>
+    </nav>
+    <div class="foot-info">
+      <p><a href="https://maps.google.com/?q=Azafr%C3%A1n+P%C3%A9rsico,+Carrer+de+Girona+127,+Barcelona" rel="noopener">Carrer de Girona, 127<br><span data-en="corner of Carrer de Mallorca, 08037 Barcelona">esquina Carrer de Mallorca, 08037 Barcelona</span></a></p>
+      <p><a href="tel:+34665421288">665 42 12 88</a> · <a href="https://wa.me/34665421288" rel="noopener">WhatsApp</a></p>
+      <p data-en="Tuesday to Sunday, 11:30 to 00:00. Closed on Mondays.">Martes a domingo, de 11:30 a 00:00. Lunes cerrado.</p>
+    </div>
+  </div>
+  <div class="foot-end">
+    <p>© <span data-year>2026</span> Azafrán Pérsico</p>
+    <a class="btn btn-small btn-light" href="#reservar" data-en="Book a table">Reservar mesa</a>
+  </div>
+</footer>
+
+<div class="preview" aria-hidden="true" data-preview><figure class="slot arch"><svg class="flor"><use href="#flor"/></svg></figure></div>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
