@@ -77,29 +77,27 @@ const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g
 const attr = (en) => (en ? ` data-en="${esc(en)}"` : '');
 
 const dish = (d) => `
-          <li class="dish${d.p ? ' is-persian' : ''}">
-            <figure class="slot arch dish-pic" data-photo="${d.photo}">
+          <article class="card${d.p ? ' is-persian' : ''}">
+            <div class="card-pic">
               <svg class="flor" aria-hidden="true"><use href="#flor"/></svg>
-              <img src="img/${d.photo}.jpg" alt="${esc(d.es)}" width="160" height="200" loading="lazy" onerror="this.remove()">
-            </figure>
-            <div class="dish-text">
-              <p class="dish-line"><span class="dish-name"${attr(d.en)}>${esc(d.es)}</span>${d.price ? `<span class="dish-price">${d.price} €</span>` : ''}</p>${d.des ? `
-              <p class="dish-desc"${attr(d.den)}>${esc(d.des)}</p>` : ''}${d.p ? `
-              <p class="dish-note" data-en="Persian recipe, made with saffron">Receta persa, con azafrán</p>` : ''}
+              <img src="img/${d.photo}.jpg" alt="${esc(d.es)}" width="640" height="480" loading="lazy" onerror="this.remove()">${d.p ? `
+              <span class="badge" data-en="Persian recipe">Receta persa</span>` : ''}
             </div>
-          </li>`;
+            <div class="card-body">
+              <h4 class="card-name"${attr(d.en)}>${esc(d.es)}</h4>${d.des ? `
+              <p class="card-desc"${attr(d.den)}>${esc(d.des)}</p>` : ''}
+              <p class="price">${d.price ? `${d.price} €` : '<span data-en="Ask our team">Consultar en sala</span>'}</p>
+            </div>
+          </article>`;
 
 const html = menu.map((c) => `
-      <div class="course" id="carta-${c.id}">
-        <div class="course-head">
-          <h3${attr(c.en)}>${c.es}</h3>
-          <p class="course-count" data-en="${c.items.length} dishes">${c.items.length} platos</p>
+      <div class="course" id="carta-${c.id}" data-course>
+        <h3 class="course-title"${attr(c.en)}>${c.es}</h3>
+        <div class="cards">${c.items.map(dish).join('')}
         </div>
-        <ul class="dishes">${c.items.map(dish).join('')}
-        </ul>
       </div>`).join('\n');
 
-const nav = menu.map((c) => `<a href="#carta-${c.id}"${attr(c.en)}>${c.es}</a>`).join('\n          ');
+const nav = menu.map((c, i) => `<button class="tab" type="button" role="tab" aria-selected="${i === 0}" data-tab="carta-${c.id}"${attr(c.en)}>${c.es}</button>`).join('\n          ');
 
 const file = new URL('../index.html', import.meta.url);
 let page = readFileSync(file, 'utf8');
