@@ -1,38 +1,46 @@
-# Azafrán Pérsico website
+# Azafrán Pérsico website (Next.js)
 
-The website for Azafrán Pérsico, a Persian and Mediterranean restaurant at Carrer de Girona 127, Barcelona.
+Marketing site for Azafrán Pérsico, a Persian and Mediterranean restaurant at Carrer de Girona 127, Barcelona.
 
-It is a plain static site (HTML, CSS and a little JavaScript), so it can be hosted anywhere: GitHub Pages, Netlify, or the current hosting for azafranpersico.online. There is no build step.
+Built with Next.js 14 (App Router), TypeScript, Tailwind CSS, Framer Motion, Lenis smooth scrolling and shadcn/ui form components. Deploys to Vercel with no extra setup.
 
-## Adding photos
+## Run it
 
-Every photo on the page has a fixed file name. Put a JPG with that name in the `img/` folder and it shows up on its own; a new photo with an existing name replaces the old one. Until a photo exists, a drawn saffron flower holds its place.
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build && npm start   # production build
+```
 
-The dish photos in `img/` were taken from the 2025 printed menu, so they are small (about 700 px wide). The originals from the photographer will look sharper, especially `kebab-mixto.jpg` on the first screen.
+## Where things live
 
-Use landscape or square photos at least 1600 px wide for the big slots, and at least 600 px for the dishes. Keep each file under about 400 KB (export at around 80% quality).
-
-| File in `img/` | Where it appears |
+| Path | What it is |
 | --- | --- |
-| `kebab-mixto.jpg` | The first screen, and the saffron dish picker |
-| `equipo.jpg` | Our story: the owner or the chef |
-| `fachada.jpg`, `sala-1.jpg`, `sala-2.jpg`, `noche.jpg` | El local: the front, the dining room, a laid table, the room at night |
-| One per dish, e.g. `croquetas.jpg`, `chuleton.jpg` | Beside each dish in the menu. The full list of names is in `tools/menu.mjs` (`photo:`) |
+| `app/` | Pages: `/`, `/menu`, `/our-story`, `/reservations`, `/contact`, plus `api/reservations`, sitemap, robots, favicon and share image |
+| `components/` | Nav, footer, hero, parallax image, reveal, menu rail, dish card, gallery strip, reservation form, `ui/` (shadcn) |
+| `lib/site.ts` | Address, phone, hours, Instagram, map links. Change details here and every page follows. |
+| `lib/menu.ts` | The full carta: sections, dishes, Farsi names, prices, photos |
+| `lib/reservation.ts` | Booking form rules (shared by the form and the server) |
+| `tailwind.config.ts` | Brand colours (saffron, pomegranate, earth, cream, ink, gold) and display type sizes |
+| `public/images/` | Photography and logo |
 
-## Changing the menu
+## Common edits
 
-The menu lives in `tools/menu.mjs`. Edit a dish, its price or its description there, then run:
+- **A price or dish:** edit `lib/menu.ts`. Leave `price` out to show "Ask us".
+- **A dish photo:** put the JPG in `public/images/` and set `image: "/images/name.jpg"` on the dish. Dishes without a photo show the saffron flower.
+- **Hero photos:** `heroSlides` at the top of `app/page.tsx`. To use a film, pass `video="/videos/hero.mp4"` to `<Hero>` and keep the first slide as its poster.
+- **Hours, phone, email, Instagram:** `lib/site.ts`. The contact page shows the email as soon as `email` is filled in.
 
-```
-node tools/menu.mjs
-```
+## Reservations
 
-That rewrites the menu inside `index.html`.
+`POST /api/reservations` validates the booking and, for now, only logs it (a placeholder). To receive bookings by email, add these environment variables in Vercel:
 
-## Bookings
+| Variable | Value |
+| --- | --- |
+| `RESEND_API_KEY` | Your Resend API key |
+| `RESERVATIONS_TO` | The inbox that receives bookings |
+| `RESERVATIONS_FROM` | Optional. A sender on a domain verified in Resend, e.g. `Azafrán Pérsico <reservas@azafranpersico.online>` |
 
-The booking form does not store anything. It opens WhatsApp with a message to 665 42 12 88, already filled in with the name, day, time and number of people. Mondays are blocked because the restaurant is closed.
+## Deploy
 
-## Languages
-
-Spanish is in the HTML. Every English text sits next to it in a `data-en` attribute, and the EN button swaps them.
+Import the repository in Vercel, choose this branch, keep the defaults (framework: Next.js), add the variables above and deploy. Point `azafranpersico.online` at the Vercel project under Settings → Domains.
