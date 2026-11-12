@@ -21,6 +21,8 @@ const config: Config = {
         farsi: ["var(--font-farsi)", "Tahoma", "sans-serif"],
       },
       fontSize: {
+        // Hero headline: follows the screen width but never grows taller than the screen allows.
+        hero: ["min(clamp(2.4rem, 1rem + 5.4vw, 7rem), 10.5svh)", { lineHeight: "0.95", letterSpacing: "-0.03em" }],
         "display-xl": ["clamp(2.4rem, 1rem + 7.4vw, 9rem)", { lineHeight: "0.92", letterSpacing: "-0.03em" }],
         "display-lg": ["clamp(2.75rem, 1.4rem + 5vw, 6.5rem)", { lineHeight: "0.96", letterSpacing: "-0.025em" }],
         "display-md": ["clamp(2rem, 1.2rem + 2.8vw, 3.75rem)", { lineHeight: "1.02", letterSpacing: "-0.02em" }],

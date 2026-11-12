@@ -4,16 +4,25 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { nav, site } from "@/lib/site";
+import { site } from "@/lib/site";
 import { Logo } from "./logo";
 import { Button } from "./ui/button";
+import { LanguageSwitcher } from "./language-switcher";
+import { useLocale } from "./locale-provider";
+import { localHref } from "@/lib/i18n/config";
 import { cn } from "@/lib/utils";
 
-// Starts transparent over the hero photo and turns solid cream once you scroll.
+// Starts clear over the hero photo (with a soft dark band so links stay readable) and turns solid cream on scroll.
 export function Nav() {
+  const { locale, t } = useLocale();
   const pathname = usePathname();
   const [solid, setSolid] = useState(false);
   const [open, setOpen] = useState(false);
+  const links = [
+    { href: "/menu", label: t.nav.menu },
+    { href: "/our-story", label: t.nav.story },
+    { href: "/contact", label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setSolid(window.scrollY > 48);
@@ -31,47 +40,51 @@ export function Nav() {
   }, [open]);
 
   const light = !solid || open;
+  const isCurrent = (href: string) => pathname === localHref(locale, href);
 
   return (
     <>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[background-color,color,box-shadow,height] duration-500 ease-soft",
-          solid && !open ? "bg-cream-soft/95 text-ink shadow-[0_1px_0_rgba(55,42,40,0.08)] backdrop-blur-sm" : "bg-transparent text-cream"
+          "fixed inset-x-0 top-0 z-50 transition-[background-color,color,box-shadow] duration-500 ease-soft",
+          solid && !open ? "bg-cream-soft/95 text-ink shadow-[0_1px_0_rgba(55,42,40,0.08)] backdrop-blur-sm" : "text-cream"
         )}
       >
-        <div className={cn("container flex items-center justify-between gap-6 transition-[height] duration-500 ease-soft", solid ? "h-[72px]" : "h-[92px]")}>
-          <Link href="/" aria-label={`${site.name}, home`} className="shrink-0">
+        {/* Readability band: only while the bar floats over a photo */}
+        <div aria-hidden="true" className={cn("pointer-events-none absolute inset-x-0 top-0 h-[150%] bg-[linear-gradient(180deg,rgba(30,19,14,0.7)_0%,rgba(30,19,14,0.35)_55%,transparent_100%)] transition-opacity duration-500", solid || open ? "opacity-0" : "opacity-100")} />
+        <div className={cn("container relative flex items-center justify-between gap-4 transition-[height] duration-500 ease-soft", solid ? "h-[72px]" : "h-[88px]")}>
+          <Link href={localHref(locale, "/")} aria-label={`${site.name}, ${t.nav.home}`} className="shrink-0">
             <Logo className={cn("w-auto transition-[height] duration-500 ease-soft", solid ? "h-11" : "h-14")} />
           </Link>
-          <nav aria-label="Main" className="hidden items-center gap-10 md:flex">
-            {nav.map((item) => (
+          <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">
+            {links.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
-                aria-current={pathname === item.href ? "page" : undefined}
-                className="group relative py-1 text-sm font-semibold uppercase tracking-[0.16em]"
+                href={localHref(locale, item.href)}
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+                className="group relative py-1 text-sm font-semibold uppercase tracking-[0.16em] [text-shadow:0_1px_12px_rgba(0,0,0,0.25)]"
               >
                 {item.label}
-                <span className={cn("absolute inset-x-0 -bottom-0.5 h-px origin-right scale-x-0 bg-current transition-transform duration-500 ease-soft group-hover:origin-left group-hover:scale-x-100", pathname === item.href && "scale-x-100")} />
+                <span className={cn("absolute inset-x-0 -bottom-0.5 h-px origin-[inline-end] scale-x-0 bg-current transition-transform duration-500 ease-soft group-hover:origin-[inline-start] group-hover:scale-x-100", isCurrent(item.href) && "scale-x-100")} />
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <LanguageSwitcher onDark={light} />
             <Button asChild size="sm" variant={light ? "saffron" : "dark"} className="hidden sm:inline-flex">
-              <Link href="/reservations">Book a table</Link>
+              <Link href={localHref(locale, "/reservations")}>{t.nav.book}</Link>
             </Button>
             <button
               type="button"
-              className="flex h-11 w-11 items-center justify-center md:hidden"
+              className="flex h-11 w-11 items-center justify-center lg:hidden"
               aria-expanded={open}
               aria-controls="mobile-menu"
-              aria-label={open ? "Close menu" : "Open menu"}
+              aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
               onClick={() => setOpen((v) => !v)}
             >
               <span className="relative block h-3 w-6">
-                <span className={cn("absolute left-0 top-0 h-[1.5px] w-full bg-current transition-transform duration-500 ease-soft", open && "translate-y-[5px] rotate-45")} />
-                <span className={cn("absolute bottom-0 left-0 h-[1.5px] w-full bg-current transition-transform duration-500 ease-soft", open && "-translate-y-[5px] -rotate-45")} />
+                <span className={cn("absolute start-0 top-0 h-[1.5px] w-full bg-current transition-transform duration-500 ease-soft", open && "translate-y-[5px] rotate-45")} />
+                <span className={cn("absolute bottom-0 start-0 h-[1.5px] w-full bg-current transition-transform duration-500 ease-soft", open && "-translate-y-[5px] -rotate-45")} />
               </span>
             </button>
           </div>
@@ -82,7 +95,7 @@ export function Nav() {
         {open && (
           <motion.div
             id="mobile-menu"
-            className="fixed inset-0 z-40 flex flex-col justify-between bg-earth-deep px-5 pb-10 pt-32 text-cream md:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-between bg-earth-deep px-5 pb-10 pt-32 text-cream lg:hidden"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
@@ -90,9 +103,9 @@ export function Nav() {
           >
             <nav aria-label="Mobile">
               <ul className="space-y-2">
-                {[{ href: "/", label: "Home" }, ...nav, { href: "/reservations", label: "Book a table" }].map((item, i) => (
+                {[{ href: "/", label: t.nav.home }, ...links, { href: "/reservations", label: t.nav.book }].map((item, i) => (
                   <motion.li key={item.href} initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 + i * 0.06, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-                    <Link href={item.href} className={cn("font-display text-5xl", item.href === "/reservations" && "text-saffron")}>
+                    <Link href={localHref(locale, item.href)} className={cn("font-display text-5xl", item.href === "/reservations" && "text-saffron")}>
                       {item.label}
                     </Link>
                   </motion.li>
@@ -101,7 +114,7 @@ export function Nav() {
             </nav>
             <div className="space-y-1 text-cream/80">
               <p>{site.address.street}, Barcelona</p>
-              <p>{site.phone.display}</p>
+              <p dir="ltr" className="text-start">{site.phone.display}</p>
             </div>
           </motion.div>
         )}

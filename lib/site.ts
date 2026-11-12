@@ -15,17 +15,8 @@ export const site = {
   // TODO: add the restaurant's email address once confirmed.
   email: "",
   instagram: { handle: "@azafran_persico", url: "https://www.instagram.com/azafran_persico/" },
-  hours: [
-    { days: "Monday", time: "Closed" },
-    { days: "Tuesday to Sunday", time: "11:30 to 00:00" },
-  ],
   mapsLink: "https://maps.google.com/?q=Azafr%C3%A1n+P%C3%A9rsico,+Carrer+de+Girona+127,+08037+Barcelona",
   mapsEmbed: "https://www.google.com/maps?q=Carrer+de+Girona+127,+08037+Barcelona&z=16&output=embed",
-  rating: "4.8",
+  rating: "4.8", // shown until live Google data is connected
 } as const;
 
-export const nav = [
-  { href: "/menu", label: "Menu" },
-  { href: "/our-story", label: "Our Story" },
-  { href: "/contact", label: "Contact" },
-] as const;

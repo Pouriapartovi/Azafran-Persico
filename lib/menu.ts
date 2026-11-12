@@ -1,114 +1,129 @@
+import type { Locale } from "./i18n/config";
+
 // The full carta, in the order the owner wants: Persian dishes first in each section.
-// Prices in euros, VAT included. Farsi names should be checked by the kitchen before launch.
+// Prices in euros, VAT included. `es` is the name printed on the menu; `fa` is the Farsi name.
+// Translations (name and description) are per language. Have the kitchen check them before launch.
+
+type T = Record<Locale, string>;
 
 export type Dish = {
   id: string;
-  es: string; // name on the menu (Latin script)
-  en: string; // English name
-  fa: string; // name in Farsi script
-  price?: string; // omitted while unconfirmed
-  description?: string;
+  es: string;
+  fa: string;
+  name: Omit<T, "es" | "fa">; // translated name for en, ca, fr
+  desc?: T;
+  price?: string; // left out while unconfirmed: the site shows "Ask us"
   persian?: boolean;
   image?: string; // file in /public/images
 };
 
-export type MenuSection = {
-  id: string;
-  title: string;
-  titleEs: string;
-  fa: string;
-  intro?: string;
-  cover: string;
-  dishes: Dish[];
-};
+export type MenuSection = { id: string; title: T; cover: string; dishes: Dish[] };
+
+const d = (en: string, es: string, ca: string, fr: string, fa: string): T => ({ en, es, ca, fr, fa });
 
 export const menu: MenuSection[] = [
   {
     id: "starters",
-    title: "Starters",
-    titleEs: "Entrantes",
-    fa: "پیش‌غذا",
+    title: d("Starters", "Entrantes", "Entrants", "Entrées", "پیش‌غذا"),
     cover: "/images/kashk-bademjan.jpg",
     dishes: [
-      { id: "olivieh", es: "Ensalada rusa estilo persa", en: "Persian Olivier salad", fa: "سالاد الویه", price: "7,00", description: "Olivieh, the Persian potato salad, with toasts.", persian: true, image: "/images/olivieh.jpg" },
-      { id: "kashk-bademjan", es: "Crema de berenjena estilo persa", en: "Persian aubergine dip", fa: "کشک بادمجان", price: "9,50", description: "Kashk-e bademjan: smoky aubergine with kashk, with toasts.", persian: true, image: "/images/kashk-bademjan.jpg" },
-      { id: "ensalada-verde", es: "Ensalada verde", en: "Green salad", fa: "سالاد سبز", price: "8,50", description: "Mixed leaves, avocado, egg, carrot and tomato.", image: "/images/ensalada-verde.jpg" },
-      { id: "tomate-mozzarella", es: "Ensalada de tomate y mozzarella", en: "Tomato and mozzarella salad", fa: "سالاد گوجه و موتزارلا", price: "10,00", image: "/images/tomate-mozzarella.jpg" },
-      { id: "queso-cabra", es: "Ensalada con queso de cabra", en: "Goat cheese salad", fa: "سالاد پنیر بز", price: "10,00", description: "With walnuts.", image: "/images/queso-cabra.jpg" },
-      { id: "verduras", es: "Verduras a la plancha", en: "Grilled vegetables", fa: "سبزیجات کبابی", price: "8,00" },
+      { id: "olivieh", es: "Ensalada rusa estilo persa", fa: "سالاد الویه", name: { en: "Persian Olivier salad", ca: "Ensaladilla russa persa", fr: "Salade Olivier persane" }, price: "7,00", persian: true, image: "/images/olivieh.jpg",
+        desc: d("Olivieh, the Persian potato salad, with toasts.", "Olivieh, la ensaladilla de patata persa, con tostadas.", "Olivieh, l'ensaladilla de patata persa, amb torrades.", "Olivieh, la salade de pommes de terre persane, avec des toasts.", "الویه، سالاد سیب‌زمینی ایرانی، با نان تست.") },
+      { id: "kashk-bademjan", es: "Crema de berenjena estilo persa", fa: "کشک بادمجان", name: { en: "Persian aubergine dip", ca: "Crema d'albergínia persa", fr: "Crème d'aubergine persane" }, price: "9,50", persian: true, image: "/images/kashk-bademjan.jpg",
+        desc: d("Kashk-e bademjan: smoky aubergine with kashk, with toasts.", "Kashk-e bademjan: berenjena ahumada con kashk, con tostadas.", "Kashk-e bademjan: albergínia fumada amb kashk, amb torrades.", "Kashk-e bademjan : aubergine fumée au kashk, avec des toasts.", "بادمجان دودی با کشک، با نان تست.") },
+      { id: "ensalada-verde", es: "Ensalada verde", fa: "سالاد سبز", name: { en: "Green salad", ca: "Amanida verda", fr: "Salade verte" }, price: "8,50", image: "/images/ensalada-verde.jpg",
+        desc: d("Mixed leaves, avocado, egg, carrot and tomato.", "Mezclum, aguacate, huevo, zanahoria y tomate.", "Mesclum, alvocat, ou, pastanaga i tomàquet.", "Mesclun, avocat, œuf, carotte et tomate.", "کاهوی مخلوط، آووکادو، تخم‌مرغ، هویج و گوجه.") },
+      { id: "tomate-mozzarella", es: "Ensalada de tomate y mozzarella", fa: "سالاد گوجه و موتزارلا", name: { en: "Tomato and mozzarella salad", ca: "Amanida de tomàquet i mozzarella", fr: "Salade tomate mozzarella" }, price: "10,00", image: "/images/tomate-mozzarella.jpg" },
+      { id: "queso-cabra", es: "Ensalada con queso de cabra", fa: "سالاد پنیر بز", name: { en: "Goat cheese salad", ca: "Amanida amb formatge de cabra", fr: "Salade au chèvre" }, price: "10,00", image: "/images/queso-cabra.jpg",
+        desc: d("With walnuts.", "Con nueces.", "Amb nous.", "Aux noix.", "با گردو.") },
+      { id: "verduras", es: "Verduras a la plancha", fa: "سبزیجات کبابی", name: { en: "Grilled vegetables", ca: "Verdures a la planxa", fr: "Légumes grillés" }, price: "8,00" },
     ],
   },
   {
     id: "tapas",
-    title: "Tapas",
-    titleEs: "Tapas",
-    fa: "تاپاس",
+    title: d("Tapas", "Tapas", "Tapes", "Tapas", "تاپاس"),
     cover: "/images/croquetas.jpg",
     dishes: [
-      { id: "pan-tomate", es: "Pan con tomate", en: "Bread with tomato", fa: "نان با گوجه", price: "3,50", image: "/images/pan-tomate.jpg" },
-      { id: "patatas-fritas", es: "Patatas fritas", en: "French fries", fa: "سیب‌زمینی سرخ‌کرده", price: "4,00", image: "/images/patatas-fritas.jpg" },
-      { id: "padron", es: "Pimientos del Padrón", en: "Padrón peppers", fa: "فلفل پادرون", price: "5,90", image: "/images/padron.jpg" },
-      { id: "bravas", es: "Patatas bravas", en: "Patatas bravas", fa: "پاتاتاس براواس", price: "7,00", image: "/images/bravas.jpg" },
-      { id: "croquetas", es: "Croquetas (4 u.)", en: "Croquettes (4 pcs)", fa: "کروکت", price: "8,00", description: "Assorted, depending on the day.", image: "/images/croquetas.jpg" },
-      { id: "champinones", es: "Champiñones salteados", en: "Sautéed mushrooms", fa: "قارچ تفت‌داده", price: "8,50", image: "/images/champinones.jpg" },
-      { id: "anchoas", es: "Anchoas con tostadas", en: "Anchovies with toast", fa: "آنچوی با نان تست", price: "8,50" },
-      { id: "alitas", es: "Alitas de pollo", en: "Chicken wings", fa: "بال مرغ", price: "8,90", description: "Glazed, with sesame.", image: "/images/alitas.jpg" },
-      { id: "gyozas", es: "Gyozas (6 u.)", en: "Gyozas (6 pcs)", fa: "گیوزا", price: "11,00", description: "With soy dipping sauce.", image: "/images/gyozas.jpg" },
-      { id: "tabla-queso", es: "Tabla de queso", en: "Cheese board", fa: "تخته پنیر", price: "15,50", image: "/images/tabla-queso.jpg" },
-      { id: "jamon", es: "Tabla de jamón ibérico", en: "Iberian ham board", fa: "تخته ژامبون ایبریکو", price: "17,00", image: "/images/jamon.jpg" },
-      { id: "mini-burgers", es: "Tabla de mini hamburguesas", en: "Mini burger board", fa: "مینی همبرگر", price: "20,50", description: "Three mini burgers in different flavours, with fries." },
+      { id: "pan-tomate", es: "Pan con tomate", fa: "نان با گوجه", name: { en: "Bread with tomato", ca: "Pa amb tomàquet", fr: "Pain à la tomate" }, price: "3,50", image: "/images/pan-tomate.jpg" },
+      { id: "patatas-fritas", es: "Patatas fritas", fa: "سیب‌زمینی سرخ‌کرده", name: { en: "French fries", ca: "Patates fregides", fr: "Frites" }, price: "4,00", image: "/images/patatas-fritas.jpg" },
+      { id: "padron", es: "Pimientos del Padrón", fa: "فلفل پادرون", name: { en: "Padrón peppers", ca: "Pebrots del Padró", fr: "Piments de Padrón" }, price: "5,90", image: "/images/padron.jpg" },
+      { id: "bravas", es: "Patatas bravas", fa: "پاتاتاس براواس", name: { en: "Patatas bravas", ca: "Patates braves", fr: "Patatas bravas" }, price: "7,00", image: "/images/bravas.jpg" },
+      { id: "croquetas", es: "Croquetas (4 u.)", fa: "کروکت", name: { en: "Croquettes (4 pcs)", ca: "Croquetes (4 u.)", fr: "Croquettes (4 pièces)" }, price: "8,00", image: "/images/croquetas.jpg",
+        desc: d("Assorted, depending on the day.", "Variadas, según el día.", "Variades, segons el dia.", "Assorties, selon le jour.", "انواع مختلف، بسته به روز.") },
+      { id: "champinones", es: "Champiñones salteados", fa: "قارچ تفت‌داده", name: { en: "Sautéed mushrooms", ca: "Xampinyons saltats", fr: "Champignons sautés" }, price: "8,50", image: "/images/champinones.jpg" },
+      { id: "anchoas", es: "Anchoas con tostadas", fa: "آنچوی با نان تست", name: { en: "Anchovies with toast", ca: "Anxoves amb torrades", fr: "Anchois et toasts" }, price: "8,50" },
+      { id: "alitas", es: "Alitas de pollo", fa: "بال مرغ", name: { en: "Chicken wings", ca: "Ales de pollastre", fr: "Ailes de poulet" }, price: "8,90", image: "/images/alitas.jpg",
+        desc: d("Glazed, with sesame.", "Glaseadas, con sésamo.", "Glacejades, amb sèsam.", "Laquées, au sésame.", "لعاب‌دار، با کنجد.") },
+      { id: "gyozas", es: "Gyozas (6 u.)", fa: "گیوزا", name: { en: "Gyozas (6 pcs)", ca: "Gyozes (6 u.)", fr: "Gyozas (6 pièces)" }, price: "11,00", image: "/images/gyozas.jpg",
+        desc: d("With soy dipping sauce.", "Con salsa de soja para mojar.", "Amb salsa de soja per sucar.", "Avec sauce soja.", "با سس سویا.") },
+      { id: "tabla-queso", es: "Tabla de queso", fa: "تخته پنیر", name: { en: "Cheese board", ca: "Taula de formatges", fr: "Plateau de fromages" }, price: "15,50", image: "/images/tabla-queso.jpg" },
+      { id: "jamon", es: "Tabla de jamón ibérico", fa: "تخته ژامبون ایبریکو", name: { en: "Iberian ham board", ca: "Taula de pernil ibèric", fr: "Plateau de jambon ibérique" }, price: "17,00", image: "/images/jamon.jpg" },
+      { id: "mini-burgers", es: "Tabla de mini hamburguesas", fa: "مینی همبرگر", name: { en: "Mini burger board", ca: "Taula de mini hamburgueses", fr: "Plateau de mini burgers" }, price: "20,50",
+        desc: d("Three mini burgers in different flavours, with fries.", "Tres mini hamburguesas de sabores distintos, con patatas.", "Tres mini hamburgueses de gustos diferents, amb patates.", "Trois mini burgers aux saveurs différentes, avec frites.", "سه مینی همبرگر با طعم‌های مختلف، با سیب‌زمینی.") },
     ],
   },
   {
     id: "fish",
-    title: "Fish & Seafood",
-    titleEs: "Pescados",
-    fa: "ماهی و غذای دریایی",
+    title: d("Fish & Seafood", "Pescados", "Peix i marisc", "Poissons et fruits de mer", "ماهی و غذای دریایی"),
     cover: "/images/paella.jpg",
     dishes: [
-      { id: "tartar-salmon", es: "Tartar de salmón con aguacate", en: "Salmon tartare with avocado", fa: "تارتار سالمون با آووکادو", price: "15,90", image: "/images/tartar-salmon.jpg" },
-      { id: "pescado-dia", es: "Pescado del día", en: "Fish of the day", fa: "ماهی روز", price: "17,50", description: "With fries or salad.", image: "/images/pescado-dia.jpg" },
-      { id: "fish-chips", es: "Fish & chips", en: "Fish and chips", fa: "فیش اند چیپس", price: "18,80", description: "With tartare sauce.", image: "/images/fish-chips.jpg" },
-      { id: "tartar-atun", es: "Tartar de atún fresco", en: "Fresh tuna tartare", fa: "تارتار تن ماهی تازه", price: "19,90" },
-      { id: "gambones", es: "Gambones a la plancha", en: "Grilled king prawns", fa: "میگوی کبابی", price: "26,90" },
-      { id: "paella", es: "Paella de marisco", en: "Seafood paella", fa: "پائلای دریایی", price: "16,00 / 28,90", description: "For one or for two.", image: "/images/paella.jpg" },
+      { id: "tartar-salmon", es: "Tartar de salmón con aguacate", fa: "تارتار سالمون با آووکادو", name: { en: "Salmon tartare with avocado", ca: "Tàrtar de salmó amb alvocat", fr: "Tartare de saumon à l'avocat" }, price: "15,90", image: "/images/tartar-salmon.jpg" },
+      { id: "pescado-dia", es: "Pescado del día", fa: "ماهی روز", name: { en: "Fish of the day", ca: "Peix del dia", fr: "Poisson du jour" }, price: "17,50", image: "/images/pescado-dia.jpg",
+        desc: d("With fries or salad.", "Con patatas o ensalada.", "Amb patates o amanida.", "Avec frites ou salade.", "با سیب‌زمینی یا سالاد.") },
+      { id: "fish-chips", es: "Fish & chips", fa: "فیش اند چیپس", name: { en: "Fish and chips", ca: "Fish & chips", fr: "Fish & chips" }, price: "18,80", image: "/images/fish-chips.jpg",
+        desc: d("With tartare sauce.", "Con salsa tártara.", "Amb salsa tàrtara.", "Avec sauce tartare.", "با سس تارتار.") },
+      { id: "tartar-atun", es: "Tartar de atún fresco", fa: "تارتار تن ماهی تازه", name: { en: "Fresh tuna tartare", ca: "Tàrtar de tonyina fresca", fr: "Tartare de thon frais" }, price: "19,90" },
+      { id: "gambones", es: "Gambones a la plancha", fa: "میگوی کبابی", name: { en: "Grilled king prawns", ca: "Gambots a la planxa", fr: "Gambas grillées" }, price: "26,90" },
+      { id: "paella", es: "Paella de marisco", fa: "پائلای دریایی", name: { en: "Seafood paella", ca: "Paella de marisc", fr: "Paella aux fruits de mer" }, price: "16,00 / 28,90", image: "/images/paella.jpg",
+        desc: d("For one or for two.", "Para uno o para dos.", "Per a un o per a dos.", "Pour une ou deux personnes.", "برای یک یا دو نفر.") },
     ],
   },
   {
     id: "meat",
-    title: "Meat",
-    titleEs: "Carnes",
-    fa: "گوشت",
+    title: d("Meat", "Carnes", "Carns", "Viandes", "غذاهای گوشتی"),
     cover: "/images/solomillo.jpg",
     dishes: [
-      { id: "pollo-azafran", es: "Pollo al azafrán con arroz", en: "Saffron chicken with rice", fa: "چلو مرغ زعفرانی", price: "18,90", description: "Chicken marinated in saffron, with Persian rice.", persian: true },
-      { id: "khoresh", es: "Guiso persa del día con arroz", en: "Persian stew of the day", fa: "خورش روز با برنج", price: "17,50", description: "Khoresh, slow cooked. Ask which one is on today.", persian: true },
-      { id: "cordero", es: "Cordero aromático con arroz, 500 g", en: "Aromatic lamb with rice, 500 g", fa: "گوشت بره معطر با برنج", price: "38,00", description: "Lamb spiced the Persian way.", persian: true },
-      { id: "pollo-catalana", es: "Pollo a la catalana", en: "Catalan-style chicken", fa: "مرغ کاتالان", price: "15,90", description: "Braised with dried fruit, served on mash.", image: "/images/pollo-catalana.jpg" },
-      { id: "lacon", es: "Lacón con patatas", en: "Cured pork shoulder with potatoes", fa: "لاکون با سیب‌زمینی", price: "14,90" },
-      { id: "steak-tartar", es: "Steak tartar sobre tuétano", en: "Steak tartare on bone marrow", fa: "استیک تارتار روی مغز استخوان", price: "25,00", image: "/images/steak-tartar.jpg" },
-      { id: "hamburguesa", es: "Hamburguesa con patatas", en: "Sirloin burger with fries", fa: "همبرگر فیله با سیب‌زمینی", price: "19,50", description: "Premium sirloin beef." },
-      { id: "solomillo", es: "Solomillo salsa de pimienta", en: "Beef tenderloin, pepper sauce", fa: "فیله گوساله با سس فلفل", price: "27,00", description: "With fries or salad.", image: "/images/solomillo.jpg" },
-      { id: "chuleton", es: "Chuletón 520 g", en: "Rib steak, 520 g", fa: "استیک دنده", price: "32,50", description: "With fries or salad.", image: "/images/chuleton.jpg" },
+      { id: "pollo-azafran", es: "Pollo al azafrán con arroz", fa: "چلو مرغ زعفرانی", name: { en: "Saffron chicken with rice", ca: "Pollastre amb safrà i arròs", fr: "Poulet au safran et riz" }, price: "18,90", persian: true,
+        desc: d("Chicken marinated in saffron, with Persian rice.", "Pollo marinado en azafrán, con arroz persa.", "Pollastre marinat amb safrà, amb arròs persa.", "Poulet mariné au safran, avec riz persan.", "مرغ مرینیت‌شده در زعفران، با برنج ایرانی.") },
+      { id: "khoresh", es: "Guiso persa del día con arroz", fa: "خورش روز با برنج", name: { en: "Persian stew of the day", ca: "Guisat persa del dia amb arròs", fr: "Ragoût persan du jour" }, price: "17,50", persian: true,
+        desc: d("Khoresh, slow cooked. Ask which one is on today.", "Khoresh a fuego lento. Pregunta cuál hay hoy.", "Khoresh a foc lent. Pregunta quin hi ha avui.", "Khoresh mijoté. Demandez celui du jour.", "خورش جاافتاده. بپرسید امروز کدام است.") },
+      { id: "cordero", es: "Cordero aromático con arroz, 500 g", fa: "گوشت بره معطر با برنج", name: { en: "Aromatic lamb with rice, 500 g", ca: "Xai aromàtic amb arròs, 500 g", fr: "Agneau aromatique et riz, 500 g" }, price: "38,00", persian: true,
+        desc: d("Lamb spiced the Persian way.", "Cordero especiado al estilo persa.", "Xai especiat a l'estil persa.", "Agneau épicé à la persane.", "گوشت بره با ادویه‌های ایرانی.") },
+      { id: "pollo-catalana", es: "Pollo a la catalana", fa: "مرغ کاتالان", name: { en: "Catalan-style chicken", ca: "Pollastre a la catalana", fr: "Poulet à la catalane" }, price: "15,90", image: "/images/pollo-catalana.jpg",
+        desc: d("Braised with dried fruit, served on mash.", "Guisado con frutos secos, sobre puré.", "Guisat amb fruita seca, sobre puré.", "Mijoté aux fruits secs, sur purée.", "خورشی با میوه‌ی خشک، روی پوره.") },
+      { id: "lacon", es: "Lacón con patatas", fa: "لاکون با سیب‌زمینی", name: { en: "Cured pork shoulder with potatoes", ca: "Lacó amb patates", fr: "Épaule de porc et pommes de terre" }, price: "14,90" },
+      { id: "steak-tartar", es: "Steak tartar sobre tuétano", fa: "استیک تارتار روی مغز استخوان", name: { en: "Steak tartare on bone marrow", ca: "Steak tàrtar sobre moll d'os", fr: "Steak tartare sur os à moelle" }, price: "25,00", image: "/images/steak-tartar.jpg" },
+      { id: "hamburguesa", es: "Hamburguesa con patatas", fa: "همبرگر فیله با سیب‌زمینی", name: { en: "Sirloin burger with fries", ca: "Hamburguesa amb patates", fr: "Burger d'aloyau et frites" }, price: "19,50",
+        desc: d("Premium sirloin beef.", "Carne de solomillo, calidad premium.", "Carn de filet, qualitat prèmium.", "Bœuf d'aloyau premium.", "گوشت فیله‌ی درجه‌یک.") },
+      { id: "solomillo", es: "Solomillo salsa de pimienta", fa: "فیله گوساله با سس فلفل", name: { en: "Beef tenderloin, pepper sauce", ca: "Filet amb salsa de pebre", fr: "Filet de bœuf, sauce au poivre" }, price: "27,00", image: "/images/solomillo.jpg",
+        desc: d("With fries or salad.", "Con patatas o ensalada.", "Amb patates o amanida.", "Avec frites ou salade.", "با سیب‌زمینی یا سالاد.") },
+      { id: "chuleton", es: "Chuletón 520 g", fa: "استیک دنده", name: { en: "Rib steak, 520 g", ca: "Costella de bou, 520 g", fr: "Côte de bœuf, 520 g" }, price: "32,50", image: "/images/chuleton.jpg",
+        desc: d("With fries or salad.", "Con patatas o ensalada.", "Amb patates o amanida.", "Avec frites ou salade.", "با سیب‌زمینی یا سالاد.") },
     ],
   },
   {
     id: "desserts",
-    title: "Desserts",
-    titleEs: "Postres",
-    fa: "دسر",
+    title: d("Desserts", "Postres", "Postres", "Desserts", "دسر"),
     cover: "/images/tabla-queso.jpg",
     dishes: [
-      { id: "helado-persa", es: "Helado con sabores persas", en: "Persian ice cream", fa: "بستنی سنتی", price: "6,50", description: "Pistachio or saffron.", persian: true },
-      { id: "crema-catalana", es: "Crema catalana", en: "Crema catalana", fa: "کرم کاتالان", price: "5,00" },
-      { id: "tarta-queso", es: "Tarta de queso", en: "Cheesecake", fa: "چیزکیک", price: "5,50" },
-      { id: "mousse", es: "Mousse de chocolate", en: "Chocolate mousse", fa: "موس شکلات", price: "6,50", description: "With nuts." },
-      { id: "bizcocho", es: "Bizcocho", en: "Sponge cake", fa: "کیک اسفنجی", price: "4,50", description: "With candied orange." },
+      { id: "helado-persa", es: "Helado con sabores persas", fa: "بستنی سنتی", name: { en: "Persian ice cream", ca: "Gelat de sabors perses", fr: "Glace aux saveurs persanes" }, price: "6,50", persian: true,
+        desc: d("Pistachio or saffron.", "Pistacho o azafrán.", "Festuc o safrà.", "Pistache ou safran.", "پسته یا زعفران.") },
+      { id: "crema-catalana", es: "Crema catalana", fa: "کرم کاتالان", name: { en: "Crema catalana", ca: "Crema catalana", fr: "Crème catalane" }, price: "5,00" },
+      { id: "tarta-queso", es: "Tarta de queso", fa: "چیزکیک", name: { en: "Cheesecake", ca: "Pastís de formatge", fr: "Cheesecake" }, price: "5,50" },
+      { id: "mousse", es: "Mousse de chocolate", fa: "موس شکلات", name: { en: "Chocolate mousse", ca: "Mousse de xocolata", fr: "Mousse au chocolat" }, price: "6,50",
+        desc: d("With nuts.", "Con frutos secos.", "Amb fruits secs.", "Aux fruits secs.", "با مغزها.") },
+      { id: "bizcocho", es: "Bizcocho", fa: "کیک اسفنجی", name: { en: "Sponge cake", ca: "Pa de pessic", fr: "Génoise" }, price: "4,50",
+        desc: d("With candied orange.", "Con naranja confitada.", "Amb taronja confitada.", "À l'orange confite.", "با پرتقال شکری.") },
     ],
   },
 ];
 
-// Text-only lists from the daytime café offer.
+// Name to show in a given language: the menu (Spanish) name for es, the Farsi name for fa.
+export const dishName = (dish: Dish, locale: Locale) => (locale === "es" ? dish.es : locale === "fa" ? dish.fa : dish.name[locale]);
+// Second line under the main name, so staff and guests can always match it to the printed carta.
+export const dishSubName = (dish: Dish, locale: Locale) => (locale === "es" ? dish.fa : dish.es);
+
+// Text-only lists from the daytime café offer (names stay as printed on the menu).
 export const cafe = {
   coffee: [
     { name: "Café con leche", price: "1,90" },
@@ -140,7 +155,3 @@ export const cafe = {
     { name: "Palmera multicereal", price: "1,20" },
   ],
 };
-
-export const signatureDishes = ["kashk-bademjan", "olivieh", "paella", "pollo-catalana", "solomillo", "steak-tartar", "croquetas", "tartar-salmon"]
-  .map((id) => menu.flatMap((s) => s.dishes).find((d) => d.id === id)!)
-  .filter(Boolean);

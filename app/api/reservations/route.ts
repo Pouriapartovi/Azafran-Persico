@@ -19,7 +19,7 @@ export async function POST(request: Request) {
   const r = parsed.data;
   if (r.website) return NextResponse.json({ ok: true }); // quietly drop bots
 
-  const summary = `${r.name} · ${r.people} ${r.people === 1 ? "person" : "people"} · ${r.date} at ${r.time} · ${r.phone}${r.notes ? ` · ${r.notes}` : ""}`;
+  const summary = `${r.name} · ${r.people} ${r.people === 1 ? "person" : "people"} · ${r.date} at ${r.time} · ${r.phone}${r.notes ? ` · ${r.notes}` : ""}${r.locale ? ` · site language: ${r.locale}` : ""}`;
 
   const key = process.env.RESEND_API_KEY;
   const to = process.env.RESERVATIONS_TO;
