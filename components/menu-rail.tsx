@@ -77,7 +77,7 @@ export function MenuRail({ sections }: { sections: MenuSection[] }) {
         {sections.map((s) => (
           <li key={s.id} className="w-[78vw] shrink-0 snap-start sm:w-[44vw] lg:w-[30vw] xl:w-[26vw] 2xl:max-w-[420px]">
             <Link href={`/menu#${s.id}`} draggable={false} className="group block">
-              <div className="relative aspect-[4/5] overflow-hidden bg-cream-deep">
+              <div className="relative aspect-[4/3] overflow-hidden bg-cream-deep">
                 <Image src={s.cover} alt={`${s.title} at Azafrán Pérsico`} fill draggable={false} sizes="(min-width: 1280px) 26vw, (min-width: 1024px) 30vw, (min-width: 640px) 44vw, 78vw" className="pointer-events-none object-cover transition-transform duration-[1200ms] ease-soft group-hover:scale-[1.06]" />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,rgba(43,28,22,0.7)_100%)]" />
                 <div className="absolute inset-x-0 bottom-0 p-6 text-cream">

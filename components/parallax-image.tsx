@@ -16,7 +16,7 @@ type Props = {
 };
 
 // A photo that drifts gently against the scroll inside a fixed frame, and wipes in on entry.
-export function ParallaxImage({ src, alt, className, sizes = "100vw", priority, strength = 8, position = "50% 50%" }: Props) {
+export function ParallaxImage({ src, alt, className, sizes = "100vw", priority, strength = 4, position = "50% 50%" }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -31,7 +31,7 @@ export function ParallaxImage({ src, alt, className, sizes = "100vw", priority, 
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
     >
-      <motion.div className="absolute inset-[-10%_0]" style={reduce ? undefined : { y }}>
+      <motion.div className="absolute inset-[-5%_0]" style={reduce ? undefined : { y }}>
         <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" style={{ objectPosition: position }} />
       </motion.div>
     </motion.div>

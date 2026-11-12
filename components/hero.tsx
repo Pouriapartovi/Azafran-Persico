@@ -8,7 +8,8 @@ import { Button } from "./ui/button";
 
 // Until a hero film exists, the hero is a slow crossfade between real dishes from the kitchen.
 // To use a video instead, pass `video` (a muted MP4 in /public) and keep `slides[0]` as its poster.
-export type HeroSlide = { src: string; alt: string; position?: string };
+// `mobile` is an optional portrait version shown on phones, so a wide photo is not cut down to a sliver.
+export type HeroSlide = { src: string; alt: string; position?: string; mobile?: { src: string; position?: string } };
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -42,9 +43,20 @@ export function Hero({ slides, video }: { slides: HeroSlide[]; video?: string })
                 fill
                 priority={index === 0}
                 sizes="100vw"
-                className="animate-kenburns object-cover"
+                className={`animate-kenburns object-cover ${slides[index].mobile ? "hidden md:block" : ""}`}
                 style={{ objectPosition: slides[index].position ?? "50% 50%" }}
               />
+              {slides[index].mobile && (
+                <Image
+                  src={slides[index].mobile!.src}
+                  alt={slides[index].alt}
+                  fill
+                  priority={index === 0}
+                  sizes="100vw"
+                  className="animate-kenburns object-cover md:hidden"
+                  style={{ objectPosition: slides[index].mobile!.position ?? "50% 50%" }}
+                />
+              )}
             </motion.div>
           </AnimatePresence>
         )}

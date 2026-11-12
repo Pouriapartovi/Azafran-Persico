@@ -29,7 +29,7 @@ export function DishCard({ dish, className, showFarsi = true }: { dish: Dish; cl
       onPointerLeave={onLeave}
     >
       <motion.div style={reduce ? undefined : { rotateX, rotateY }} className="will-change-transform">
-        <div className="relative aspect-[4/5] overflow-hidden bg-cream-deep">
+        <div className="relative aspect-[4/3] overflow-hidden bg-cream-deep">
           {dish.image ? (
             <Image
               src={dish.image}

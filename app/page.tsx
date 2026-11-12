@@ -11,14 +11,14 @@ import { menu, signatureDishes } from "@/lib/menu";
 import { site } from "@/lib/site";
 
 const heroSlides = [
-  { src: "/images/bg-kubideh.jpg", alt: "Kebab koobideh with saffron rice, grilled tomato and peppers", position: "50% 55%" },
-  { src: "/images/bg-paella.jpg", alt: "Seafood paella with king prawns and clams", position: "50% 50%" },
+  { src: "/images/bg-kubideh.jpg", alt: "Kebab koobideh with saffron rice, grilled tomato and peppers", position: "50% 55%", mobile: { src: "/images/kebab-mixto.jpg", position: "50% 60%" } },
+  { src: "/images/bg-paella.jpg", alt: "Seafood paella with king prawns and clams", position: "50% 50%", mobile: { src: "/images/paella.jpg", position: "42% 45%" } },
   { src: "/images/pollo-catalana.jpg", alt: "Pollo a la catalana braised with dried fruit on mash", position: "50% 45%" },
   { src: "/images/solomillo.jpg", alt: "Beef tenderloin with pepper sauce and hand-cut fries", position: "60% 50%" },
 ];
 
 const gallery = [
-  { src: "/images/kebab-mixto.jpg", alt: "Saffron chicken and koobideh kebab with Persian rice" },
+  { src: "/images/kubideh.jpg", alt: "Two skewers of kebab koobideh with saffron rice and grilled tomatoes" },
   { src: "/images/kashk-bademjan.jpg", alt: "Kashk-e bademjan with walnuts" },
   { src: "/images/paella.jpg", alt: "Seafood paella" },
   { src: "/images/alitas.jpg", alt: "Glazed chicken wings with sesame" },
@@ -110,7 +110,7 @@ export default function Home() {
 
       {/* Reservations call to action */}
       <section className="relative overflow-hidden" aria-labelledby="book-title">
-        <ParallaxImage src="/images/bg-paella.jpg" alt="" className="absolute inset-0 h-full" strength={10} />
+        <ParallaxImage src="/images/bg-paella.jpg" alt="" className="absolute inset-0 h-full" strength={4} />
         <div className="absolute inset-0 bg-earth-deep/60" />
         <div className="container relative py-32 text-cream md:py-48">
           <Reveal className="on-dark max-w-3xl">

@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 
 function DishRow({ dish }: { dish: Dish }) {
   return (
-    <article className="group grid grid-cols-[88px_minmax(0,1fr)] gap-4 sm:grid-cols-[132px_minmax(0,1fr)] sm:gap-7">
-      <div className="relative aspect-square overflow-hidden bg-cream-deep">
+    <article className="group grid grid-cols-[104px_minmax(0,1fr)] gap-4 sm:grid-cols-[160px_minmax(0,1fr)] sm:gap-7">
+      <div className="relative aspect-[4/3] overflow-hidden bg-cream-deep">
         {dish.image ? (
-          <Image src={dish.image} alt={`${dish.en} at Azafrán Pérsico`} fill sizes="132px" className="object-cover transition-transform duration-[1200ms] ease-soft group-hover:scale-110" />
+          <Image src={dish.image} alt={`${dish.en} at Azafrán Pérsico`} fill sizes="(min-width: 640px) 160px, 104px" className="object-cover transition-transform duration-[1200ms] ease-soft group-hover:scale-110" />
         ) : (
           <div className="flex h-full items-center justify-center bg-earth text-saffron-light" role="img" aria-label={`Photo of ${dish.en} coming soon`}>
             <Flower className="h-1/2 w-1/2 opacity-70" />

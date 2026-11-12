@@ -19,6 +19,7 @@ const chapters = [
     image: "/images/bg-kubideh.jpg",
     alt: "Two skewers of kebab koobideh with saffron rice, grilled tomatoes and green peppers",
     position: "45% 50%",
+    shape: "aspect-[4/3]",
   },
   {
     eyebrow: "Saffron",
@@ -27,6 +28,7 @@ const chapters = [
     image: "/images/kebab-mixto.jpg",
     alt: "Saffron chicken and koobideh kebab with a dome of saffron rice topped with barberries",
     position: "50% 70%",
+    shape: "aspect-[4/5]",
   },
   {
     eyebrow: "Barcelona",
@@ -35,6 +37,7 @@ const chapters = [
     image: "/images/paella.jpg",
     alt: "Seafood paella with king prawns and clams on a wooden table",
     position: "50% 50%",
+    shape: "aspect-[4/3]",
   },
 ];
 
@@ -55,7 +58,7 @@ export default function OurStoryPage() {
         <section key={c.eyebrow} className={i % 2 === 0 ? "bg-cream" : ""} aria-labelledby={`chapter-${i}`}>
           <div className="container grid items-center gap-12 py-24 md:grid-cols-12 md:gap-16 md:py-32">
             <div className={i % 2 === 0 ? "md:col-span-6" : "md:col-span-6 md:col-start-7 md:row-start-1"}>
-              <ParallaxImage src={c.image} alt={c.alt} className="aspect-[4/5]" sizes="(min-width: 768px) 48vw, 100vw" position={c.position} />
+              <ParallaxImage src={c.image} alt={c.alt} className={c.shape} sizes="(min-width: 768px) 48vw, 100vw" position={c.position} />
             </div>
             <Reveal className={i % 2 === 0 ? "md:col-span-5 md:col-start-8" : "md:col-span-5 md:col-start-1 md:row-start-1"}>
               <p className="eyebrow mb-5">{c.eyebrow}</p>

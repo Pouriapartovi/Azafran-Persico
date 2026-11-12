@@ -15,7 +15,7 @@ export function PageHero({ title, eyebrow, image, alt, position = "50% 50%", chi
   const parts = title.split(/(&|\.)/);
 
   return (
-    <section ref={ref} className="relative h-[72svh] min-h-[460px] overflow-hidden bg-earth-deep text-cream">
+    <section ref={ref} className="relative h-[58svh] min-h-[420px] overflow-hidden bg-earth-deep text-cream md:h-[72svh] md:min-h-[460px]">
       <motion.div className="absolute inset-0" style={reduce ? undefined : { y }}>
         <Image src={image} alt={alt} fill priority sizes="100vw" className="animate-kenburns object-cover" style={{ objectPosition: position }} />
       </motion.div>
