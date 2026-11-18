@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import sizeOf from "image-size";
 
-// Every photo in /public/gallery appears in the home page gallery, in alphabetical order.
+// Every photo in /public/gallery appears on the gallery page (the first six also on the home page), in alphabetical order.
 // To add one, upload a JPG, PNG or WebP to that folder. Name it with words and hyphens
 // (e.g. "terrace-at-night.jpg"): the name becomes its description for screen readers.
 // Start a name with a number ("01-...") to choose the order.

@@ -1,6 +1,6 @@
 import { FLOWER_PATHS, LOGO_PATHS } from "./logo-paths";
 
-// The logo takes the colour of the text around it, so it works on photos and on cream.
+// The logo takes the colour of the text around it, so it works on photos and on white.
 export function Logo({ className = "", title = "Azafrán Pérsico" }: { className?: string; title?: string }) {
   return (
     <svg viewBox="142 147 560 236" fill="currentColor" role="img" aria-label={title} className={className}>

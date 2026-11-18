@@ -8,16 +8,16 @@
   /* Lenis handles smooth scrolling; native smooth scroll would fight it. */
   html.lenis, html.lenis body { height: auto; }
   .lenis.lenis-smooth { scroll-behavior: auto !important; }
-  body { @apply bg-cream-soft font-sans text-ink antialiased; font-size: 17px; line-height: 1.6; overflow-x: clip; }
-  ::selection { @apply bg-saffron text-ink; }
-  :focus-visible { @apply outline-none ring-2 ring-saffron ring-offset-2 ring-offset-cream-soft; }
+  body { @apply bg-paper font-sans text-ink antialiased; font-size: 17px; line-height: 1.6; overflow-x: clip; }
+  ::selection { @apply bg-brand text-white; }
+  :focus-visible { @apply outline-none ring-2 ring-brand ring-offset-2 ring-offset-paper; }
 }
 
 @layer components {
-  /* The soft period and ampersand: serif italic in saffron, a touch lighter. */
-  .soft-mark { @apply font-display italic text-saffron; font-weight: 400; }
-  .eyebrow { @apply font-sans text-[0.8125rem] font-semibold uppercase tracking-[0.18em] text-saffron-deep; }
-  .on-dark .eyebrow { @apply text-saffron-light; }
+  /* The soft period and ampersand: serif italic in pomegranate red. */
+  .soft-mark { @apply font-display italic text-brand; font-weight: 400; }
+  .eyebrow { @apply font-sans text-[0.8125rem] font-semibold uppercase tracking-[0.18em] text-leaf-deep; }
+  .on-dark .eyebrow { @apply text-white; }
 }
 
 @media (prefers-reduced-motion: reduce) {

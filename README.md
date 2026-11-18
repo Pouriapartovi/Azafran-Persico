@@ -18,27 +18,27 @@ npm run build && npm start   # production build
 
 | Path | What it is |
 | --- | --- |
-| `app/[locale]/` | Pages: home, `/menu`, `/our-story`, `/reservations`, `/contact`, one copy per language |
+| `app/[locale]/` | Pages: home, `/menu`, `/our-story`, `/gallery`, `/reservations`, `/contact`, one copy per language |
 | `app/` | `api/reservations`, sitemap, robots, favicon and share image |
 | `middleware.ts` | Sends visitors without a language in the URL to the right one |
 | `lib/i18n/dictionaries/` | Every piece of site text, one file per language (`es.ts`, `en.ts`, `ca.ts`, `fr.ts`, `fa.ts`) |
 | `components/` | Nav, language switcher, footer, hero, kebab video, menu categories pop-up, gallery, reviews, reservation form, `ui/` (shadcn) |
 | `lib/google-reviews.ts` | Fetches the latest Google reviews |
 | `lib/site.ts` | Address, phone, hours, Instagram, map links. Change details here and every page follows. |
-| `lib/menu.ts` | The full carta: sections, dishes, names in each language, prices, photos |
+| `lib/menu.ts` | The carta: sections, dishes, prices, photos, and every name and description in all five languages (each page shows only its own language) |
 | `lib/reservation.ts` | Booking form rules (shared by the form and the server) |
-| `tailwind.config.ts` | Brand colours (saffron, pomegranate, earth, cream, ink, gold) and display type sizes |
+| `tailwind.config.ts` | Colours (white `paper`, soft green `mist`, pomegranate red `brand`, pistachio green `leaf`, `ink`) and display type sizes |
 | `public/images/` | Dish photography and logo |
-| `public/gallery/` | Real photos of the restaurant shown in the home page gallery |
+| `public/gallery/` | Real photos of the restaurant: all on the gallery page, the first six on the home page |
 | `public/videos/` | The kebab video and its poster |
 
 ## Common edits
 
-- **A price or dish:** edit `lib/menu.ts`. Leave `price` out to show "Ask us".
+- **A price or dish:** edit `lib/menu.ts`. Fill in the name in all five languages (order: English, Spanish, Catalan, French, Persian). Leave `price` out to show "Ask us".
 - **A dish photo:** put the JPG in `public/images/` and set `image: "/images/name.jpg"` on the dish. Dishes without a photo show the saffron flower.
 - **Gallery photos:** drop JPG or PNG files into `public/gallery/` (on GitHub: open the folder, Add file, Upload files). They appear on the home page on the next deploy. The file name becomes the description, so `saffron-rice-on-the-pass.jpg` reads "Saffron rice on the pass". Keep each under about 500 KB.
 - **Site text:** edit the language files in `lib/i18n/dictionaries/`. Change the same key in all five.
-- **Hero photos:** `heroSlides` at the top of `app/[locale]/page.tsx`. The restaurant photo next to the map is `restaurantPhoto` in the same file.
+- **Header carousel:** `heroSlides` at the top of `app/[locale]/page.tsx`. Each slide's dish name is in `hero.slides` in the language files. The restaurant photo next to the map is `restaurantPhoto` in the same file.
 - **Videos:** compress before adding, with no sound, e.g. `ffmpeg -i in.mp4 -an -vf scale=720:-2 -c:v libx264 -crf 28 -preset slow -movflags +faststart out.mp4`.
 - **Hours, phone, email, Instagram:** `lib/site.ts`. The contact page shows the email as soon as `email` is filled in.
 

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales } from "@/lib/i18n/config";
 import { site } from "@/lib/site";
 
-const pages = ["", "/menu", "/our-story", "/reservations", "/contact"];
+const pages = ["", "/menu", "/our-story", "/gallery", "/reservations", "/contact"];
 
 // Every page in every language, each listing its translations.
 export default function sitemap(): MetadataRoute.Sitemap {

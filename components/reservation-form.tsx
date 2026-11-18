@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 type Errors = Partial<Record<string, string[]>>;
 
 const selectClass =
-  "flex h-14 w-full appearance-none border-0 border-b border-ink/25 bg-transparent bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22><path d=%22M1 1l5 5 5-5%22 stroke=%22%23372A28%22 stroke-width=%221.5%22 fill=%22none%22/></svg>')] bg-[length:12px_8px] bg-[right_4px_center] bg-no-repeat px-0 text-base text-ink focus-visible:border-saffron-deep focus-visible:outline-none aria-[invalid=true]:border-pomegranate rtl:bg-[left_4px_center]";
+  "flex h-14 w-full appearance-none border-0 border-b border-ink/25 bg-transparent bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22><path d=%22M1 1l5 5 5-5%22 stroke=%22%23372A28%22 stroke-width=%221.5%22 fill=%22none%22/></svg>')] bg-[length:12px_8px] bg-[right_4px_center] bg-no-repeat px-0 text-base text-ink focus-visible:border-brand-deep focus-visible:outline-none aria-[invalid=true]:border-brand-deep rtl:bg-[left_4px_center]";
 
 export function ReservationForm() {
   const { locale, t } = useLocale();
@@ -105,7 +105,7 @@ export function ReservationForm() {
           </div>
           <div className="flex flex-col gap-4 sm:col-span-2 sm:flex-row sm:items-center">
             <Button type="submit" size="lg" disabled={status === "sending"}>{status === "sending" ? f.sending : f.submit}</Button>
-            <p className={cn("text-sm", status === "failed" ? "text-pomegranate" : "text-ink-soft")} role={status === "failed" ? "alert" : undefined}>
+            <p className={cn("text-sm", status === "failed" ? "text-brand-deep" : "text-ink-soft")} role={status === "failed" ? "alert" : undefined}>
               {status === "failed" ? fill(f.failed, { phone: site.phone.display }) : f.confirmNote}
             </p>
           </div>
@@ -116,5 +116,5 @@ export function ReservationForm() {
 }
 
 function FieldError({ id, text }: { id: string; text?: string }) {
-  return text ? <p id={id} className="mt-2 text-sm text-pomegranate">{text}</p> : null;
+  return text ? <p id={id} className="mt-2 text-sm text-brand-deep">{text}</p> : null;
 }

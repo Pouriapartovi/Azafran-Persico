@@ -18,14 +18,14 @@ export function MenuNav({ sections }: { sections: { id: string; label: string }[
   }, [sections]);
 
   return (
-    <nav aria-label={t.menuPage.sections} className="sticky top-[72px] z-30 border-y border-gold-line/50 bg-cream-soft/95 backdrop-blur-sm">
+    <nav aria-label={t.menuPage.sections} className="sticky top-[76px] z-30 border-y border-line bg-white/95 backdrop-blur-sm">
       <ul className="container flex gap-2 overflow-x-auto py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {sections.map((s) => (
           <li key={s.id} className="shrink-0">
             <a
               href={`#${s.id}`}
               aria-current={active === s.id ? "true" : undefined}
-              className={cn("block px-4 py-2 text-sm font-semibold uppercase tracking-[0.14em] transition-colors duration-300", active === s.id ? "bg-ink text-cream" : "text-ink-soft hover:text-ink")}
+              className={cn("block px-4 py-2 text-sm font-semibold uppercase tracking-[0.14em] transition-colors duration-300", active === s.id ? "bg-brand text-white" : "text-ink-soft hover:text-ink")}
             >
               {s.label}
             </a>

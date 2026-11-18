@@ -48,7 +48,7 @@ export function LanguageSwitcher({ className, onDark = false }: { className?: st
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className={cn("absolute end-0 top-full z-50 mt-2 min-w-[160px] py-2 shadow-[0_12px_40px_rgba(43,28,22,0.25)]", onDark ? "bg-earth-deep text-cream" : "bg-cream-soft text-ink")}
+            className={cn("absolute end-0 top-full z-50 mt-2 min-w-[160px] py-2 shadow-[0_12px_40px_rgba(43,28,22,0.25)]", onDark ? "bg-night text-paper" : "bg-paper text-ink")}
           >
             {locales.map((l) => (
               <li key={l}>
@@ -58,7 +58,7 @@ export function LanguageSwitcher({ className, onDark = false }: { className?: st
                   lang={l}
                   onClick={() => { remember(l); setOpen(false); }}
                   aria-current={l === locale ? "true" : undefined}
-                  className={cn("flex items-center justify-between gap-4 px-4 py-2.5 text-base transition-colors hover:bg-saffron/15", l === locale && "font-semibold text-saffron-deep")}
+                  className={cn("flex items-center justify-between gap-4 px-4 py-2.5 text-base transition-colors hover:bg-brand/15", l === locale && "font-semibold text-brand-deep")}
                 >
                   {localeNames[l]}
                   <span className="text-xs opacity-60">{localeShort[l]}</span>

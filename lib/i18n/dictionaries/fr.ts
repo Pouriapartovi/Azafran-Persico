@@ -2,10 +2,12 @@ import type { Dictionary } from "./en";
 
 export const fr: Dictionary = {
   meta: {
+    gallery: "Galerie",
+    galleryDescription: "Photos d'Azafrán Pérsico dans l'Eixample de Barcelone : le grill, la salle et les assiettes telles qu'elles sortent de la cuisine.",
     siteTitle: "Azafrán Pérsico · Restaurant persan et méditerranéen à Barcelone",
     description: "Restaurant persan et méditerranéen dans l'Eixample de Barcelone. Kebabs au safran, ragoûts persans, tapas et paella, avec du vrai safran d'Iran.",
     menu: "Carte",
-    menuDescription: "La carte complète d'Azafrán Pérsico : recettes persanes au safran d'Iran, tapas, poissons, paella, viandes et desserts. Prix TTC.",
+    menuDescription: "La carte complète d'Azafrán Pérsico : entrées, tapas, poissons, paella et viandes, et dès 11h30 café et sandwichs. Prix TTC.",
     story: "Notre histoire",
     storyDescription: "Une famille qui tenait des restaurants à Téhéran cuisine aujourd'hui dans l'Eixample : l'hospitalité persane avec des produits méditerranéens et du safran d'Iran.",
     reservations: "Réservations",
@@ -14,6 +16,7 @@ export const fr: Dictionary = {
     contactDescription: "Azafrán Pérsico, Carrer de Girona 127, à l'angle de Mallorca, 08037 Barcelone. Téléphone et WhatsApp 665 42 12 88.",
   },
   nav: {
+    gallery: "Galerie",
     home: "Accueil",
     menu: "Carte",
     story: "Notre histoire",
@@ -26,6 +29,12 @@ export const fr: Dictionary = {
   },
   hours: { monday: "Lundi", closed: "Fermé", tueSun: "Du mardi au dimanche", time: "11h30 à 00h00", short: "Mar à dim · 11h30 à 00h00" },
   hero: {
+    slides: ["Paella aux fruits de mer", "Filet de bœuf, sauce au poivre", "Poulet à la catalane", "Kebab koobideh et riz au safran"],
+    carousel: "Plats de notre cuisine",
+    previous: "Plat précédent",
+    next: "Plat suivant",
+    slideOf: "{n} sur {total}",
+    goTo: "Voir {name}",
     eyebrow: "Persan & méditerranéen · Eixample, Barcelone",
     lines: ["Âme persane", "& table", "méditerranéenne."],
     sub: "Kebabs au safran et ragoûts persans à côté des tapas et de la paella. Du vrai safran d'Iran, cuisiné par une famille de Téhéran.",
@@ -53,16 +62,16 @@ export const fr: Dictionary = {
   categories: {
     eyebrow: "La carte",
     title: "Safran, braise & mer.",
-    intro: "Les recettes persanes viennent en premier dans chaque section de la carte. Ouvrez une section pour voir ses plats.",
+    intro: "Ouvrez une section pour voir ses plats et ses prix.",
     dishes: "{n} plats",
     open: "Ouvrir {name}",
     close: "Fermer",
     fullMenu: "Voir toute la carte",
     askUs: "Nous demander",
-    persianRecipe: "Recette persane",
     noPhoto: "Photo bientôt",
   },
   gallery: {
+    seeAll: "Voir toutes les photos",
     eyebrow: "Chez nous",
     title: "Venez avec l'appétit.",
     intro: "Le grill, la salle et les assiettes telles qu'elles sortent de la cuisine.",
@@ -81,6 +90,10 @@ export const fr: Dictionary = {
     stars: "{n} étoiles sur 5",
     translated: "Traduit par Google",
   },
+  findUs: {
+    eyebrow: "Nous trouver",
+    title: "À l'angle de Girona & Mallorca.",
+  },
   booking: {
     eyebrow: "Réservations",
     title: "Gardez-nous une table.",
@@ -97,17 +110,17 @@ export const fr: Dictionary = {
     reservations: "Réservations",
   },
   menuPage: {
-    eyebrow: "La carta",
+    eyebrow: "La carte",
     title: "La carte.",
-    intro: "Les recettes persanes viennent en premier dans chaque section et portent la marque ◆. Prix en euros, TVA incluse.",
+    intro: "Prix en euros, TVA incluse.",
     sections: "Sections de la carte",
     cafeEyebrow: "Dès 11h30",
     cafeTitle: "Café, sandwichs & viennoiseries.",
     coffee: "Café et thé",
-    bocadillos: "Sandwichs (bocadillos)",
+    bocadillos: "Sandwichs",
     bocadillosNote: "Entier / demi",
     bolleria: "Viennoiseries",
-    legend: "Recette persane · Demandez à notre équipe pour les allergènes.",
+    legend: "Demandez à notre équipe pour les allergènes.",
     photoOf: "{name} chez Azafrán Pérsico",
   },
   storyPage: {

@@ -35,7 +35,7 @@ export function StoryVideo({ src, poster, className }: { src: string; poster: st
 
   return (
     <motion.div
-      className={cn("relative overflow-hidden bg-earth-deep", className)}
+      className={cn("relative overflow-hidden bg-night", className)}
       initial={reduce ? false : { clipPath: "inset(12% 0% 0% 0%)", opacity: 0 }}
       whileInView={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}
@@ -58,7 +58,7 @@ export function StoryVideo({ src, poster, className }: { src: string; poster: st
         type="button"
         onClick={toggle}
         aria-label={paused ? t.storyTeaser.play : t.storyTeaser.pause}
-        className="absolute bottom-4 end-4 flex h-11 w-11 items-center justify-center bg-ink/60 text-cream backdrop-blur-sm transition-colors hover:bg-saffron hover:text-ink"
+        className="absolute bottom-4 end-4 flex h-11 w-11 items-center justify-center bg-ink/60 text-paper backdrop-blur-sm transition-colors hover:bg-brand hover:text-white"
       >
         {paused ? <Play className="h-4 w-4" aria-hidden="true" /> : <Pause className="h-4 w-4" aria-hidden="true" />}
       </button>

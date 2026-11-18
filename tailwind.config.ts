@@ -1,19 +1,20 @@
 import type { Config } from "tailwindcss";
 
-// Azafrán Pérsico brand tokens: saffron, deep red, warm earth and cream,
-// with the menu's deep brown and gold from the printed carta.
+// Azafrán Pérsico palette: clean white, pomegranate red and pistachio green.
+// brand = buttons and accents; brand-deep = red text on white; leaf = fresh green for labels and details.
 const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./lib/**/*.{ts,tsx}"],
   theme: {
     container: { center: true, padding: { DEFAULT: "1.25rem", md: "2rem", xl: "3rem" }, screens: { "2xl": "1440px" } },
     extend: {
       colors: {
-        cream: { DEFAULT: "#F6EFE3", soft: "#FBF7F0", deep: "#EDE2CF" },
-        saffron: { DEFAULT: "#E1952B", deep: "#B8711A", light: "#F3C27A" },
-        pomegranate: { DEFAULT: "#8E1B1E", deep: "#6E1316" },
-        earth: { DEFAULT: "#6B4A36", deep: "#4A3226" },
-        ink: { DEFAULT: "#372A28", soft: "#5E4D47" },
-        gold: { DEFAULT: "#A67C3E", line: "#C9A46A" },
+        paper: { DEFAULT: "#FFFFFF" },
+        mist: { DEFAULT: "#F3F8F2", deep: "#E9EEE7" },
+        brand: { DEFAULT: "#E5243F", deep: "#BF1830", light: "#FF9AA6", tint: "#FFECEE" },
+        leaf: { DEFAULT: "#2F9E4F", deep: "#1D7A3A", tint: "#E2F4E6" },
+        ink: { DEFAULT: "#15171C", soft: "#575C66" },
+        line: { DEFAULT: "#E2E6E0" },
+        night: { DEFAULT: "#14161B", soft: "#262A31" },
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
@@ -21,8 +22,8 @@ const config: Config = {
         farsi: ["var(--font-farsi)", "Tahoma", "sans-serif"],
       },
       fontSize: {
-        // Hero headline: follows the screen width but never grows taller than the screen allows.
-        hero: ["min(clamp(2.4rem, 1rem + 5.4vw, 7rem), 10.5svh)", { lineHeight: "0.95", letterSpacing: "-0.03em" }],
+        // Hero headline beside the carousel (the hero sets a column-based size from lg up).
+        hero: ["clamp(2.3rem, 1rem + 5vw, 4rem)", { lineHeight: "0.95", letterSpacing: "-0.03em" }],
         "display-xl": ["clamp(2.4rem, 1rem + 7.4vw, 9rem)", { lineHeight: "0.92", letterSpacing: "-0.03em" }],
         "display-lg": ["clamp(2.75rem, 1.4rem + 5vw, 6.5rem)", { lineHeight: "0.96", letterSpacing: "-0.025em" }],
         "display-md": ["clamp(2rem, 1.2rem + 2.8vw, 3.75rem)", { lineHeight: "1.02", letterSpacing: "-0.02em" }],

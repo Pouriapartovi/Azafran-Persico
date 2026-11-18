@@ -10,7 +10,7 @@ function Stars({ value, label, className }: { value: number; label: string; clas
   return (
     <span className={cn("inline-flex gap-0.5", className)} role="img" aria-label={label}>
       {[1, 2, 3, 4, 5].map((n) => (
-        <Star key={n} className={cn("h-4 w-4", n <= Math.round(value) ? "fill-saffron text-saffron" : "text-gold-line")} aria-hidden="true" />
+        <Star key={n} className={cn("h-4 w-4", n <= Math.round(value) ? "fill-brand text-brand" : "text-line")} aria-hidden="true" />
       ))}
     </span>
   );
@@ -23,7 +23,7 @@ export function Reviews({ data, t }: { data: GoogleReviews | null; t: Dictionary
   const title = t.reviews.title.split(/(&|\.)/);
 
   return (
-    <section className="bg-cream py-24 md:py-32" aria-labelledby="reviews-title">
+    <section className="bg-mist py-24 md:py-32" aria-labelledby="reviews-title">
       <div className="container">
         <Reveal className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
@@ -47,19 +47,19 @@ export function Reviews({ data, t }: { data: GoogleReviews | null; t: Dictionary
           <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {data.reviews.slice(0, 6).map((r, i) => (
               <li key={`${r.author}-${i}`}>
-                <Reveal delay={(i % 3) * 0.08} className="flex h-full flex-col bg-cream-soft p-7">
+                <Reveal delay={(i % 3) * 0.08} className="flex h-full flex-col bg-paper p-7">
                   <Stars value={r.rating} label={fill(t.reviews.stars, { n: r.rating })} />
                   <blockquote className="mt-4 flex-1 text-ink">
                     <p className="line-clamp-[8]">{r.text}</p>
                   </blockquote>
-                  <footer className="mt-6 flex items-center gap-3 border-t border-gold-line/50 pt-4">
+                  <footer className="mt-6 flex items-center gap-3 border-t border-line pt-4">
                     {r.authorPhoto && (
                       // eslint-disable-next-line @next/next/no-img-element -- Google author photos, shown as Google provides them
                       <img src={r.authorPhoto} alt="" width={36} height={36} className="h-9 w-9 rounded-full" referrerPolicy="no-referrer" />
                     )}
                     <div className="min-w-0 text-sm">
                       {r.authorUrl ? (
-                        <a href={r.authorUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-ink hover:text-saffron-deep">{r.author}</a>
+                        <a href={r.authorUrl} target="_blank" rel="noopener noreferrer" className="font-semibold text-ink hover:text-brand-deep">{r.author}</a>
                       ) : (
                         <p className="font-semibold text-ink">{r.author}</p>
                       )}
@@ -73,7 +73,7 @@ export function Reviews({ data, t }: { data: GoogleReviews | null; t: Dictionary
         )}
 
         <Reveal className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3">
-          <a href={reviewsUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-[0.16em] text-ink underline decoration-gold-line underline-offset-8 hover:decoration-saffron">
+          <a href={reviewsUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold uppercase tracking-[0.16em] text-ink underline decoration-line underline-offset-8 hover:decoration-brand">
             {t.reviews.readAll}
           </a>
           {data && <p className="text-xs text-ink-soft">Google</p>}

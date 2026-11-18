@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: { locale: string } 
   };
 }
 
-export const viewport: Viewport = { themeColor: "#4A3226" };
+export const viewport: Viewport = { themeColor: "#FFFFFF" };
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -62,12 +62,12 @@ export default function LocaleLayout({ children, params }: { children: React.Rea
     <html lang={locale} dir={dirOf(locale)} className={`${display.variable} ${sans.variable} ${farsi.variable}`}>
       <body>
         <LocaleProvider locale={locale} t={t}>
-          <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:bg-saffron focus:px-4 focus:py-3 focus:text-ink">
+          <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[60] focus:bg-brand focus:px-4 focus:py-3 focus:text-ink">
             {t.nav.skip}
           </a>
           <SmoothScroll />
           <Nav />
-          <main id="main">{children}</main>
+          <main id="main" className="pt-[76px]">{children}</main>
           <Footer />
         </LocaleProvider>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

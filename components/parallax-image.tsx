@@ -25,7 +25,7 @@ export function ParallaxImage({ src, alt, className, sizes = "100vw", priority, 
   return (
     <motion.div
       ref={ref}
-      className={cn("relative overflow-hidden bg-cream-deep", className)}
+      className={cn("relative overflow-hidden bg-mist-deep", className)}
       initial={reduce ? false : { clipPath: "inset(12% 0% 0% 0%)", opacity: 0 }}
       whileInView={{ clipPath: "inset(0% 0% 0% 0%)", opacity: 1 }}
       viewport={{ once: true, margin: "0px 0px -10% 0px" }}

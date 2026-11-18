@@ -40,7 +40,7 @@ export default function OurStoryPage({ params }: { params: { locale: string } })
       </section>
 
       {s.chapters.map((c, i) => (
-        <section key={c.eyebrow} className={i % 2 === 0 ? "bg-cream" : ""} aria-labelledby={`chapter-${i}`}>
+        <section key={c.eyebrow} className={i % 2 === 0 ? "bg-mist" : ""} aria-labelledby={`chapter-${i}`}>
           <div className="container grid items-center gap-12 py-24 md:gap-16 lg:grid-cols-12 md:py-32">
             <div className={i % 2 === 0 ? "lg:col-span-6" : "lg:col-span-6 lg:col-start-7 lg:row-start-1"}>
               <ParallaxImage src={chapterPhotos[i].image} alt={c.alt} className={chapterPhotos[i].shape} sizes="(min-width: 1024px) 48vw, 100vw" position={chapterPhotos[i].position} />

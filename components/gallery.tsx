@@ -8,11 +8,12 @@ import Lenis from "lenis";
 import type { GalleryPhoto } from "@/lib/gallery";
 import { fill } from "@/lib/i18n/config";
 import { useLocale } from "./locale-provider";
+import { cn } from "@/lib/utils";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 // Photos keep their own shape (nothing is cropped) in a masonry layout. Tap one to see it large.
-export function Gallery({ photos }: { photos: GalleryPhoto[] }) {
+export function Gallery({ photos, compact = false }: { photos: GalleryPhoto[]; compact?: boolean }) {
   const { t } = useLocale();
   const reduce = useReducedMotion();
   const [index, setIndex] = useState<number | null>(null);
@@ -48,11 +49,11 @@ export function Gallery({ photos }: { photos: GalleryPhoto[] }) {
 
   return (
     <>
-      <ul className="columns-2 gap-3 md:columns-3 md:gap-5 xl:columns-4">
+      <ul className={cn("gap-2 md:gap-3", compact ? "columns-3 md:columns-6" : "columns-3 md:columns-4 lg:columns-5 xl:columns-6")}>
         {photos.map((p, i) => (
           <motion.li
             key={p.src}
-            className="mb-3 break-inside-avoid md:mb-5"
+            className="mb-2 break-inside-avoid md:mb-3"
             initial={reduce ? false : { opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "0px 0px -8% 0px" }}
@@ -62,9 +63,9 @@ export function Gallery({ photos }: { photos: GalleryPhoto[] }) {
               type="button"
               onClick={(e) => { last.current = e.currentTarget; setIndex(i); }}
               aria-label={fill(t.gallery.openPhoto, { name: p.alt })}
-              className="group block w-full overflow-hidden bg-cream-deep"
+              className="group block w-full overflow-hidden bg-mist-deep"
             >
-              <Image src={p.src} alt={p.alt} width={p.width} height={p.height} sizes="(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw" className="h-auto w-full transition-transform duration-[1200ms] ease-soft group-hover:scale-[1.04]" />
+              <Image src={p.src} alt={p.alt} width={p.width} height={p.height} sizes="(min-width: 1280px) 17vw, (min-width: 768px) 25vw, 33vw" className="h-auto w-full transition-transform duration-[1200ms] ease-soft group-hover:scale-[1.04]" />
             </button>
           </motion.li>
         ))}
@@ -96,20 +97,20 @@ export function Gallery({ photos }: { photos: GalleryPhoto[] }) {
                 <Image src={photo.src} alt={photo.alt} fill sizes="100vw" className="object-contain" />
               </motion.div>
             </AnimatePresence>
-            <button ref={closeBtn} type="button" onClick={() => setIndex(null)} aria-label={t.gallery.close} className="absolute end-4 top-4 flex h-12 w-12 items-center justify-center text-cream hover:text-saffron">
+            <button ref={closeBtn} type="button" onClick={() => setIndex(null)} aria-label={t.gallery.close} className="absolute end-4 top-4 flex h-12 w-12 items-center justify-center text-paper hover:text-brand">
               <X className="h-6 w-6" aria-hidden="true" />
             </button>
             {photos.length > 1 && (
               <>
-                <button type="button" onClick={() => go(-1)} aria-label={t.gallery.previous} className="absolute start-2 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-cream hover:text-saffron md:start-6">
+                <button type="button" onClick={() => go(-1)} aria-label={t.gallery.previous} className="absolute start-2 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-paper hover:text-brand md:start-6">
                   <ChevronLeft className="h-8 w-8 rtl:-scale-x-100" aria-hidden="true" />
                 </button>
-                <button type="button" onClick={() => go(1)} aria-label={t.gallery.next} className="absolute end-2 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-cream hover:text-saffron md:end-6">
+                <button type="button" onClick={() => go(1)} aria-label={t.gallery.next} className="absolute end-2 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-paper hover:text-brand md:end-6">
                   <ChevronRight className="h-8 w-8 rtl:-scale-x-100" aria-hidden="true" />
                 </button>
               </>
             )}
-            <p className="absolute inset-x-0 bottom-4 text-center text-sm text-cream/70" aria-live="polite">{(index ?? 0) + 1} / {photos.length}</p>
+            <p className="absolute inset-x-0 bottom-4 text-center text-sm text-paper/70" aria-live="polite">{(index ?? 0) + 1} / {photos.length}</p>
           </motion.div>
         )}
       </AnimatePresence>

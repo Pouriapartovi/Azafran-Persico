@@ -27,8 +27,8 @@ export default function ReservationsPage({ params }: { params: { locale: string 
             <li><span className="block font-display text-2xl text-ink">{r.groupsTitle}</span>{r.groupsText}</li>
             <li>
               <span className="block font-display text-2xl text-ink">{r.sameDayTitle}</span>
-              {r.sameDayCall} <a className="text-ink underline decoration-gold-line underline-offset-4" dir="ltr" href={`tel:${site.phone.tel}`}>{site.phone.display}</a> {r.sameDayOr}{" "}
-              <a className="text-ink underline decoration-gold-line underline-offset-4" href={site.phone.whatsapp} target="_blank" rel="noopener noreferrer">{r.whatsapp}</a>.
+              {r.sameDayCall} <a className="text-ink underline decoration-line underline-offset-4" dir="ltr" href={`tel:${site.phone.tel}`}>{site.phone.display}</a> {r.sameDayOr}{" "}
+              <a className="text-ink underline decoration-line underline-offset-4" href={site.phone.whatsapp} target="_blank" rel="noopener noreferrer">{r.whatsapp}</a>.
             </li>
           </ul>
         </Reveal>

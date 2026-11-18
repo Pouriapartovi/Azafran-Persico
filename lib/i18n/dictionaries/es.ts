@@ -2,10 +2,12 @@ import type { Dictionary } from "./en";
 
 export const es: Dictionary = {
   meta: {
+    gallery: "Galería",
+    galleryDescription: "Fotos de Azafrán Pérsico en el Eixample de Barcelona: la brasa, el comedor y los platos tal como salen de la cocina.",
     siteTitle: "Azafrán Pérsico · Restaurante persa y mediterráneo en Barcelona",
     description: "Restaurante persa y mediterráneo en el Eixample de Barcelona. Kebabs al azafrán, guisos persas, tapas y paella, con azafrán auténtico de Irán.",
     menu: "Carta",
-    menuDescription: "La carta completa de Azafrán Pérsico: recetas persas con azafrán de Irán, tapas, pescado, paella, carnes y postres. Precios con IVA.",
+    menuDescription: "La carta completa de Azafrán Pérsico: entrantes, tapas, pescado, paella y carnes, y desde las 11:30 café y bocadillos. Precios con IVA.",
     story: "Nuestra historia",
     storyDescription: "Una familia que tuvo restaurantes en Teherán y ahora cocina en el Eixample: hospitalidad persa con producto mediterráneo y azafrán de Irán.",
     reservations: "Reservas",
@@ -14,6 +16,7 @@ export const es: Dictionary = {
     contactDescription: "Azafrán Pérsico, Carrer de Girona 127, esquina Mallorca, 08037 Barcelona. Teléfono y WhatsApp 665 42 12 88.",
   },
   nav: {
+    gallery: "Galería",
     home: "Inicio",
     menu: "Carta",
     story: "Nuestra historia",
@@ -26,6 +29,12 @@ export const es: Dictionary = {
   },
   hours: { monday: "Lunes", closed: "Cerrado", tueSun: "Martes a domingo", time: "11:30 a 00:00", short: "Mar a dom · 11:30 a 00:00" },
   hero: {
+    slides: ["Paella de marisco", "Solomillo con salsa de pimienta", "Pollo a la catalana", "Kebab koobideh con arroz al azafrán"],
+    carousel: "Platos de nuestra cocina",
+    previous: "Plato anterior",
+    next: "Plato siguiente",
+    slideOf: "{n} de {total}",
+    goTo: "Ver {name}",
     eyebrow: "Persa y mediterráneo · Eixample, Barcelona",
     lines: ["Alma persa", "& mesa", "mediterránea."],
     sub: "Kebabs al azafrán y guisos persas junto a tapas y paella. Azafrán auténtico de Irán, cocinado por una familia de Teherán.",
@@ -53,16 +62,16 @@ export const es: Dictionary = {
   categories: {
     eyebrow: "La carta",
     title: "Azafrán, brasa & mar.",
-    intro: "Las recetas persas van primero en cada apartado de la carta. Abre un apartado para ver sus platos.",
+    intro: "Abre un apartado para ver sus platos y precios.",
     dishes: "{n} platos",
     open: "Abrir {name}",
     close: "Cerrar",
     fullMenu: "Ver la carta completa",
     askUs: "Consultar",
-    persianRecipe: "Receta persa",
     noPhoto: "Foto próximamente",
   },
   gallery: {
+    seeAll: "Ver todas las fotos",
     eyebrow: "Nuestra casa",
     title: "Ven con hambre.",
     intro: "La brasa, el comedor y los platos tal como salen de la cocina.",
@@ -80,6 +89,10 @@ export const es: Dictionary = {
     fallback: "Valorado con {rating} de 5 por nuestros clientes en Google.",
     stars: "{n} de 5 estrellas",
     translated: "Traducido por Google",
+  },
+  findUs: {
+    eyebrow: "Dónde estamos",
+    title: "Girona esquina Mallorca.",
   },
   booking: {
     eyebrow: "Reservas",
@@ -99,7 +112,7 @@ export const es: Dictionary = {
   menuPage: {
     eyebrow: "La carta",
     title: "La carta.",
-    intro: "Las recetas persas van primero en cada apartado y llevan la marca ◆. Precios en euros, IVA incluido.",
+    intro: "Precios en euros, IVA incluido.",
     sections: "Apartados de la carta",
     cafeEyebrow: "Desde las 11:30",
     cafeTitle: "Café, bocadillos & bollería.",
@@ -107,7 +120,7 @@ export const es: Dictionary = {
     bocadillos: "Bocadillos",
     bocadillosNote: "Entero / medio",
     bolleria: "Bollería",
-    legend: "Receta persa · Pregunta a nuestro equipo por los alérgenos.",
+    legend: "Pregunta a nuestro equipo por los alérgenos.",
     photoOf: "{name} en Azafrán Pérsico",
   },
   storyPage: {

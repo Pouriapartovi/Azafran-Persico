@@ -2,10 +2,12 @@ import type { Dictionary } from "./en";
 
 export const ca: Dictionary = {
   meta: {
+    gallery: "Galeria",
+    galleryDescription: "Fotos d'Azafrán Pérsico a l'Eixample de Barcelona: la brasa, el menjador i els plats tal com surten de la cuina.",
     siteTitle: "Azafrán Pérsico · Restaurant persa i mediterrani a Barcelona",
     description: "Restaurant persa i mediterrani a l'Eixample de Barcelona. Kebabs amb safrà, guisats perses, tapes i paella, amb safrà autèntic de l'Iran.",
     menu: "Carta",
-    menuDescription: "La carta completa d'Azafrán Pérsico: receptes perses amb safrà de l'Iran, tapes, peix, paella, carns i postres. Preus amb IVA.",
+    menuDescription: "La carta completa d'Azafrán Pérsico: entrants, tapes, peix, paella i carns, i des de les 11:30 cafè i entrepans. Preus amb IVA.",
     story: "La nostra història",
     storyDescription: "Una família que va tenir restaurants a Teheran i ara cuina a l'Eixample: hospitalitat persa amb producte mediterrani i safrà de l'Iran.",
     reservations: "Reserves",
@@ -14,6 +16,7 @@ export const ca: Dictionary = {
     contactDescription: "Azafrán Pérsico, Carrer de Girona 127, cantonada Mallorca, 08037 Barcelona. Telèfon i WhatsApp 665 42 12 88.",
   },
   nav: {
+    gallery: "Galeria",
     home: "Inici",
     menu: "Carta",
     story: "La nostra història",
@@ -26,6 +29,12 @@ export const ca: Dictionary = {
   },
   hours: { monday: "Dilluns", closed: "Tancat", tueSun: "Dimarts a diumenge", time: "11:30 a 00:00", short: "Dt a dg · 11:30 a 00:00" },
   hero: {
+    slides: ["Paella de marisc", "Filet amb salsa de pebre", "Pollastre a la catalana", "Kebab koobideh amb arròs de safrà"],
+    carousel: "Plats de la nostra cuina",
+    previous: "Plat anterior",
+    next: "Plat següent",
+    slideOf: "{n} de {total}",
+    goTo: "Mostra {name}",
     eyebrow: "Persa i mediterrani · Eixample, Barcelona",
     lines: ["Ànima persa", "& taula", "mediterrània."],
     sub: "Kebabs amb safrà i guisats perses al costat de tapes i paella. Safrà autèntic de l'Iran, cuinat per una família de Teheran.",
@@ -53,16 +62,16 @@ export const ca: Dictionary = {
   categories: {
     eyebrow: "La carta",
     title: "Safrà, brasa & mar.",
-    intro: "Les receptes perses van primer a cada apartat de la carta. Obre un apartat per veure'n els plats.",
+    intro: "Obre un apartat per veure'n els plats i els preus.",
     dishes: "{n} plats",
     open: "Obrir {name}",
     close: "Tancar",
     fullMenu: "Veure la carta completa",
     askUs: "Pregunteu-nos",
-    persianRecipe: "Recepta persa",
     noPhoto: "Foto aviat",
   },
   gallery: {
+    seeAll: "Veure totes les fotos",
     eyebrow: "Casa nostra",
     title: "Vine amb gana.",
     intro: "La brasa, el menjador i els plats tal com surten de la cuina.",
@@ -80,6 +89,10 @@ export const ca: Dictionary = {
     fallback: "Valorat amb un {rating} de 5 pels nostres clients a Google.",
     stars: "{n} de 5 estrelles",
     translated: "Traduït per Google",
+  },
+  findUs: {
+    eyebrow: "On som",
+    title: "Girona cantonada Mallorca.",
   },
   booking: {
     eyebrow: "Reserves",
@@ -99,7 +112,7 @@ export const ca: Dictionary = {
   menuPage: {
     eyebrow: "La carta",
     title: "La carta.",
-    intro: "Les receptes perses van primer a cada apartat i porten la marca ◆. Preus en euros, IVA inclòs.",
+    intro: "Preus en euros, IVA inclòs.",
     sections: "Apartats de la carta",
     cafeEyebrow: "Des de les 11:30",
     cafeTitle: "Cafè, entrepans & brioixeria.",
@@ -107,7 +120,7 @@ export const ca: Dictionary = {
     bocadillos: "Entrepans",
     bocadillosNote: "Sencer / mig",
     bolleria: "Brioixeria",
-    legend: "Recepta persa · Pregunteu al nostre equip pels al·lèrgens.",
+    legend: "Pregunteu al nostre equip pels al·lèrgens.",
     photoOf: "{name} a Azafrán Pérsico",
   },
   storyPage: {

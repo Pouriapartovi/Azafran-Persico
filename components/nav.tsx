@@ -12,7 +12,7 @@ import { useLocale } from "./locale-provider";
 import { localHref } from "@/lib/i18n/config";
 import { cn } from "@/lib/utils";
 
-// Starts clear over the hero photo (with a soft dark band so links stay readable) and turns solid cream on scroll.
+// Always a clean white bar; it gains a hairline once the page scrolls.
 export function Nav() {
   const { locale, t } = useLocale();
   const pathname = usePathname();
@@ -21,6 +21,7 @@ export function Nav() {
   const links = [
     { href: "/menu", label: t.nav.menu },
     { href: "/our-story", label: t.nav.story },
+    { href: "/gallery", label: t.nav.gallery },
     { href: "/contact", label: t.nav.contact },
   ];
 
@@ -39,7 +40,6 @@ export function Nav() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  const light = !solid || open;
   const isCurrent = (href: string) => pathname === localHref(locale, href);
 
   return (
@@ -47,14 +47,13 @@ export function Nav() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[background-color,color,box-shadow] duration-500 ease-soft",
-          solid && !open ? "bg-cream-soft/95 text-ink shadow-[0_1px_0_rgba(55,42,40,0.08)] backdrop-blur-sm" : "text-cream"
+          "bg-white/95 text-ink backdrop-blur-sm",
+          solid && !open && "shadow-[0_1px_0_rgba(21,23,28,0.08)]"
         )}
       >
-        {/* Readability band: only while the bar floats over a photo */}
-        <div aria-hidden="true" className={cn("pointer-events-none absolute inset-x-0 top-0 h-[150%] bg-[linear-gradient(180deg,rgba(30,19,14,0.7)_0%,rgba(30,19,14,0.35)_55%,transparent_100%)] transition-opacity duration-500", solid || open ? "opacity-0" : "opacity-100")} />
-        <div className={cn("container relative flex items-center justify-between gap-4 transition-[height] duration-500 ease-soft", solid ? "h-[72px]" : "h-[88px]")}>
+        <div className={cn("container relative flex items-center justify-between gap-4 transition-[height] duration-500 ease-soft", "h-[76px]")}>
           <Link href={localHref(locale, "/")} aria-label={`${site.name}, ${t.nav.home}`} className="shrink-0">
-            <Logo className={cn("w-auto transition-[height] duration-500 ease-soft", solid ? "h-11" : "h-14")} />
+            <Logo className={cn("w-auto transition-[height] duration-500 ease-soft", "h-12")} />
           </Link>
           <nav aria-label="Main" className="hidden items-center gap-9 lg:flex">
             {links.map((item) => (
@@ -62,7 +61,7 @@ export function Nav() {
                 key={item.href}
                 href={localHref(locale, item.href)}
                 aria-current={isCurrent(item.href) ? "page" : undefined}
-                className="group relative py-1 text-sm font-semibold uppercase tracking-[0.16em] [text-shadow:0_1px_12px_rgba(0,0,0,0.25)]"
+                className="group relative py-1 text-sm font-semibold uppercase tracking-[0.16em]"
               >
                 {item.label}
                 <span className={cn("absolute inset-x-0 -bottom-0.5 h-px origin-[inline-end] scale-x-0 bg-current transition-transform duration-500 ease-soft group-hover:origin-[inline-start] group-hover:scale-x-100", isCurrent(item.href) && "scale-x-100")} />
@@ -70,8 +69,8 @@ export function Nav() {
             ))}
           </nav>
           <div className="flex items-center gap-2 sm:gap-3">
-            <LanguageSwitcher onDark={light} />
-            <Button asChild size="sm" variant={light ? "saffron" : "dark"} className="hidden sm:inline-flex">
+            <LanguageSwitcher onDark={false} />
+            <Button asChild size="sm"  className="hidden sm:inline-flex">
               <Link href={localHref(locale, "/reservations")}>{t.nav.book}</Link>
             </Button>
             <button
@@ -95,7 +94,7 @@ export function Nav() {
         {open && (
           <motion.div
             id="mobile-menu"
-            className="fixed inset-0 z-40 flex flex-col justify-between bg-earth-deep px-5 pb-10 pt-32 text-cream lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col justify-between bg-white px-5 pb-10 pt-32 text-ink lg:hidden"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
@@ -105,14 +104,14 @@ export function Nav() {
               <ul className="space-y-2">
                 {[{ href: "/", label: t.nav.home }, ...links, { href: "/reservations", label: t.nav.book }].map((item, i) => (
                   <motion.li key={item.href} initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 + i * 0.06, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}>
-                    <Link href={localHref(locale, item.href)} className={cn("font-display text-5xl", item.href === "/reservations" && "text-saffron")}>
+                    <Link href={localHref(locale, item.href)} className={cn("font-display text-5xl", item.href === "/reservations" && "text-brand")}>
                       {item.label}
                     </Link>
                   </motion.li>
                 ))}
               </ul>
             </nav>
-            <div className="space-y-1 text-cream/80">
+            <div className="space-y-1 text-ink-soft">
               <p>{site.address.street}, Barcelona</p>
               <p dir="ltr" className="text-start">{site.phone.display}</p>
             </div>
